@@ -197,15 +197,13 @@ silktideCookieBannerManager.updateCookieBannerConfig({
   /* NAV PILLS */
   .cat-nav {
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     gap: 8px;
+    justify-content: center;
     padding: 0 24px 48px;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    max-width: 100%;
+    max-width: 860px;
+    margin: 0 auto;
   }
-  .cat-nav::-webkit-scrollbar { display: none; }
   .cat-pill {
     font-family: 'Barlow Condensed', sans-serif;
     font-size: 12px;
@@ -218,8 +216,6 @@ silktideCookieBannerManager.updateCookieBannerConfig({
     padding: 6px 14px;
     text-decoration: none;
     transition: color 0.2s, border-color 0.2s;
-    white-space: nowrap;
-    flex-shrink: 0;
   }
   .cat-pill:hover { color: var(--text); border-color: rgba(232,230,224,0.35); }
 
