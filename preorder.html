@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<!-- ── Cookie Consent: Silktide + GA4 Consent Mode v2 ── -->
+<!-- STEP 1: Google Consent Mode v2 — default deny BEFORE GA4 loads -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    analytics_storage: 'denied',
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    wait_for_update: 500
+  });
+  gtag('js', new Date());
+</script>
+<!-- STEP 2: GA4 — loads but respects consent mode, no cookies until accepted -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7L4F1HMHKX"></script>
+
+<!-- STEP 3: Silktide — CSS and JS before config -->
+<link rel="stylesheet" href="/cookie-banner/silktide-consent-manager.css">
+<script src="/cookie-banner/silktide-consent-manager.js"></script>
+<script>
+silktideCookieBannerManager.updateCookieBannerConfig({
+  background: { showBackground: true },
+  cookieIcon: { position: "bottomLeft" },
+  cookieTypes: [
+    {
+      id: "necessary",
+      name: "Necessary",
+      description: "<p>These cookies are necessary for the website to function properly and cannot be switched off.</p>",
+      required: true,
+      onAccept: function() {}
+    },
+    {
+      id: "analytics",
+      name: "Analytics",
+      description: "<p>These cookies help us understand how visitors use the site by tracking which pages are most popular.</p>",
+      defaultValue: true,
+      onAccept: function() {
+        gtag('consent', 'update', { analytics_storage: 'granted' });
+        gtag('config', 'G-7L4F1HMHKX');
+        dataLayer.push({ event: 'consent_accepted_analytics' });
+      },
+      onReject: function() {
+        gtag('consent', 'update', { analytics_storage: 'denied' });
+      }
+    },
+    {
+      id: "advertising",
+      name: "Advertising",
+      description: "<p>These cookies are used for advertising personalisation and campaign measurement via LinkedIn and Klaviyo.</p>",
+      onAccept: function() {
+        gtag('consent', 'update', { ad_storage: 'granted', ad_user_data: 'granted', ad_personalization: 'granted' });
+        dataLayer.push({ event: 'consent_accepted_advertising' });
+      },
+      onReject: function() {
+        gtag('consent', 'update', { ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' });
+      }
+    }
+  ],
+  text: {
+    banner: {
+      description: "<p>We use cookies to improve your experience and analyse traffic. <a href='/cookie-policy.html' target='_blank'>Cookie Policy</a>.</p>",
+      acceptAllButtonText: "Accept all",
+      rejectNonEssentialButtonText: "Reject non-essential",
+      preferencesButtonText: "Preferences"
+    },
+    preferences: {
+      title: "Customise your cookie preferences",
+      description: "<p>You can choose not to allow some types of cookies. Your choices apply across our website.</p>",
+      creditLinkText: "Get this banner for free"
+    }
+  }
+});
+</script>
+<!-- ── End Cookie Consent ── -->
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pre-order — An Audience From Anywhere</title>
+<meta name="description" content="Pre-order An Audience From Anywhere by Adrian Roup. eBook, audiobook, and hardcover — choose your format." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;1,400&family=Barlow+Condensed:wght@700;800;900&display=swap" rel="stylesheet" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230c0b0a'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%23C0392B'/%3E%3C/svg%3E" />
+
+<style>
+  :root {
+    --bg: #f4f2ed;
+    --surface: #eae7e0;
+    --surface-2: #e2dfd8;
+    --surface-3: #d8d4cc;
+    --text: #18160f;
+    --text-sec: rgba(24,22,15,0.7);
+    --text-muted: rgba(24,22,15,0.45);
+    --text-faint: rgba(24,22,15,0.28);
+    --red: #C0392B;
+    --hair: rgba(24,22,15,0.09);
+    --hair-strong: rgba(24,22,15,0.16);
+    --ease: cubic-bezier(0.16,1,0.3,1);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Barlow', system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── NAV ── */
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    height: 56px;
+    border-bottom: 1px solid var(--hair);
+    position: sticky;
+    top: 0;
+    background: var(--bg);
+    z-index: 100;
+  }
+  .nav-logo {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: 14px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--text);
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 8px; align-items: center; }
+  .nav-link {
+    font-family: 'Barlow', sans-serif;
+    font-size: 14px;
+    color: var(--text-sec);
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: color 0.15s, background 0.15s;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .nav-link:hover { color: var(--text); background: var(--surface); }
+  .nav-active { color: var(--text) !important; font-weight: 600 !important; cursor: default; pointer-events: none; }
+  .nav-icon-p { display: flex; align-items: center; justify-content: center; }
+  .nav-btn-p { width: 36px; height: 36px; border-radius: 8px; border: 1px solid rgba(24,22,15,0.14); display: flex; align-items: center; justify-content: center; padding: 0; }
+  @media (max-width: 700px) {
+    .nav-label-p { display: none; }
+    .nav-icon-p { display: flex; align-items: center; justify-content: center; }
+    .nav-btn-p { width: 36px; height: 36px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; padding: 0; }
+  }
+  @media (min-width: 701px) {
+    .nav-icon-p { display: none; }
+    .nav-label-p { display: inline; }
+  }
+
+  /* ── MAIN ── */
+  main { flex: 1; display: flex; flex-direction: column; align-items: center; padding: 48px 24px 80px; }
+  .page-wrap { width: 100%; max-width: 680px; }
+
+  /* ── HEADER ── */
+  .eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 12px;
+  }
+  h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: clamp(40px, 8vw, 64px);
+    line-height: 1.0;
+    letter-spacing: -0.01em;
+    color: var(--text);
+    margin-bottom: 16px;
+  }
+  .sub {
+    font-size: 17px;
+    color: var(--text-sec);
+    max-width: 520px;
+    margin-bottom: 36px;
+    line-height: 1.6;
+  }
+
+  /* ── TIER CARDS ── */
+  .tiers {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .tier-card {
+    position: relative;
+    border: 1.5px solid var(--hair-strong);
+    border-radius: 12px;
+    padding: 20px 22px;
+    cursor: pointer;
+    transition: border-color 0.15s var(--ease), box-shadow 0.15s var(--ease), background 0.15s;
+    background: var(--bg);
+    user-select: none;
+  }
+  .tier-card:hover {
+    border-color: rgba(24,22,15,0.28);
+    box-shadow: 0 2px 12px rgba(24,22,15,0.06);
+  }
+  .tier-card.selected {
+    border-color: var(--red);
+    box-shadow: 0 0 0 3px rgba(192,57,43,0.08);
+    background: #fdf9f9;
+  }
+  .tier-card input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0; height: 0;
+  }
+
+  /* Popular badge */
+  .tier-badge {
+    position: absolute;
+    top: -1px;
+    right: 18px;
+    transform: translateY(-50%);
+    background: var(--red);
+    color: #fff;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 4px;
+  }
+
+  .tier-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .tier-left { display: flex; align-items: flex-start; gap: 14px; }
+
+  .radio-dot {
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    border: 1.5px solid var(--hair-strong);
+    flex-shrink: 0;
+    margin-top: 3px;
+    transition: border-color 0.15s, background 0.15s;
+    position: relative;
+  }
+  .tier-card.selected .radio-dot {
+    border-color: var(--red);
+    background: var(--red);
+  }
+  .tier-card.selected .radio-dot::after {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #fff;
+  }
+
+  .tier-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: 20px;
+    letter-spacing: -0.01em;
+    color: var(--text);
+    line-height: 1.2;
+  }
+  .tier-includes {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-top: 3px;
+    line-height: 1.5;
+  }
+
+  .tier-pricing { text-align: right; flex-shrink: 0; }
+  .tier-price {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: 26px;
+    color: var(--text);
+    line-height: 1.1;
+  }
+  .tier-compare {
+    font-size: 13px;
+    color: var(--text-muted);
+    text-decoration: line-through;
+    margin-top: 2px;
+  }
+  .tier-save {
+    font-size: 12px;
+    color: var(--red);
+    font-weight: 600;
+    margin-top: 2px;
+  }
+
+  /* Expanded detail — only visible on selected */
+  .tier-detail {
+    display: none;
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid var(--hair);
+  }
+  .tier-card.selected .tier-detail { display: block; }
+  .tier-detail ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .tier-detail li {
+    font-size: 14px;
+    color: var(--text-sec);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .tier-detail li::before {
+    content: '';
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--red);
+    flex-shrink: 0;
+  }
+
+  /* ── SAVINGS TALLY ── */
+  .savings-bar {
+    display: none;
+    margin-bottom: 16px;
+    padding: 14px 18px;
+    border-radius: 10px;
+    background: rgba(192,57,43,0.06);
+    border: 1px solid rgba(192,57,43,0.14);
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+  .savings-bar.hidden { display: none !important; }
+  .savings-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--red);
+    opacity: 0.7;
+  }
+  .savings-amount {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 26px;
+    color: var(--red);
+    line-height: 1;
+    transition: transform 0.18s var(--ease);
+  }
+  .savings-amount.bump {
+    transform: scale(1.08);
+  }
+  .savings-sub {
+    font-size: 13px;
+    color: var(--red);
+    opacity: 0.65;
+    margin-left: auto;
+  }
+
+  /* ── SCANS ADD-ON ── */
+  .scans-addon {
+    margin-bottom: 24px;
+    border: 1.5px solid var(--hair);
+    border-radius: 10px;
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    cursor: pointer;
+    transition: border-color 0.15s, background 0.15s;
+    user-select: none;
+    background: var(--bg);
+  }
+  .scans-addon:hover { border-color: var(--hair-strong); }
+  .scans-addon.checked { border-color: rgba(192,57,43,0.35); background: #fdf9f9; }
+  .scans-addon input[type="checkbox"] { display: none; }
+  .check-box {
+    width: 18px; height: 18px;
+    border-radius: 4px;
+    border: 1.5px solid var(--hair-strong);
+    flex-shrink: 0;
+    transition: border-color 0.15s, background 0.15s;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .scans-addon.checked .check-box {
+    border-color: var(--red);
+    background: var(--red);
+  }
+  .scans-addon.checked .check-box::after {
+    content: '';
+    width: 10px; height: 7px;
+    border-left: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+    transform: rotate(-45deg) translateY(-1px);
+    display: block;
+  }
+  .scans-text { flex: 1; }
+  .scans-label {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+  }
+  .scans-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+  .scans-price {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: 18px;
+    color: var(--text);
+    flex-shrink: 0;
+  }
+  .scans-was {
+    font-size: 12px;
+    color: var(--text-muted);
+    text-decoration: line-through;
+    text-align: right;
+    margin-top: 1px;
+  }
+
+  /* ── ORDER BUMP OVERLAY ── */
+  .bump-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(24,22,15,0.55);
+    z-index: 200;
+    align-items: flex-end;
+    justify-content: center;
+  }
+  .bump-overlay.active { display: flex; }
+
+  .bump-sheet {
+    background: var(--bg);
+    border-radius: 20px 20px 0 0;
+    padding: 32px 28px 40px;
+    width: 100%;
+    max-width: 560px;
+    box-shadow: 0 -8px 40px rgba(24,22,15,0.12);
+    animation: slideUp 0.28s var(--ease);
+  }
+  @keyframes slideUp {
+    from { transform: translateY(40px); opacity: 0; }
+    to   { transform: translateY(0); opacity: 1; }
+  }
+
+  .bump-eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+  }
+  .bump-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 28px;
+    color: var(--text);
+    line-height: 1.1;
+    margin-bottom: 10px;
+  }
+  .bump-desc {
+    font-size: 15px;
+    color: var(--text-sec);
+    line-height: 1.6;
+    margin-bottom: 18px;
+  }
+  .bump-pricing {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 22px;
+  }
+  .bump-price {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 32px;
+    color: var(--text);
+  }
+  .bump-was {
+    font-size: 15px;
+    color: var(--text-muted);
+    text-decoration: line-through;
+  }
+  .bump-save {
+    font-size: 14px;
+    color: var(--red);
+    font-weight: 600;
+  }
+
+  .bump-yes {
+    display: block;
+    width: 100%;
+    padding: 16px 20px;
+    background: var(--text);
+    color: var(--bg);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: 18px;
+    letter-spacing: 0.02em;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.15s var(--ease), box-shadow 0.15s var(--ease);
+    margin-bottom: 12px;
+    text-align: center;
+  }
+  .bump-yes:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(24,22,15,0.18);
+  }
+
+  .bump-no {
+    display: block;
+    width: 100%;
+    padding: 13px 20px;
+    background: transparent;
+    color: var(--text-muted);
+    font-family: 'Barlow', sans-serif;
+    font-size: 14px;
+    border: 1.5px solid var(--hair-strong);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: color 0.15s, border-color 0.15s;
+    text-align: center;
+  }
+  .bump-no:hover { color: var(--text); border-color: var(--hair-strong); }
+
+  /* ── ORDER SUMMARY INSIDE BUMP ── */
+  .bump-summary {
+    background: var(--surface);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 20px;
+  }
+  .bump-summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    color: var(--text-sec);
+    padding: 3px 0;
+  }
+  .bump-summary-row.total {
+    font-weight: 600;
+    color: var(--text);
+    border-top: 1px solid var(--hair);
+    margin-top: 6px;
+    padding-top: 8px;
+  }
+  .bump-divider {
+    height: 1px;
+    background: var(--hair);
+    margin: 18px 0;
+  }
+
+  /* ── CTA ── */
+  .cta-wrap { margin-bottom: 8px; }
+  .cta-btn {
+    display: block;
+    width: 100%;
+    padding: 17px 20px;
+    background: var(--text);
+    color: var(--bg);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: 19px;
+    letter-spacing: 0.02em;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.15s var(--ease), box-shadow 0.15s var(--ease);
+    opacity: 0.38;
+    pointer-events: none;
+  }
+  .cta-btn.ready {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .cta-btn.ready:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(24,22,15,0.16);
+  }
+  .trust-line {
+    font-size: 13px;
+    color: var(--text-muted);
+    text-align: center;
+    margin-top: 10px;
+  }
+  .trust-line span { margin: 0 6px; }
+
+  /* ── DIVIDER ── */
+  .section-divider {
+    height: 1px;
+    background: var(--hair);
+    margin: 40px 0 32px;
+  }
+  .section-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+  }
+
+  /* ── FORMAT GRID ── */
+  .format-grid { display: flex; flex-direction: column; gap: 20px; }
+  .format-row { display: flex; gap: 14px; align-items: flex-start; }
+  .format-icon {
+    width: 36px; height: 36px;
+    border-radius: 8px;
+    background: var(--surface);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .format-name {
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--text);
+  }
+  .format-desc {
+    font-size: 14px;
+    color: var(--text-sec);
+    margin-top: 2px;
+  }
+  .format-ships {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: 3px;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #f4f2ed;
+    border-top: 1px solid rgba(24,22,15,0.09);
+    padding: 24px 0;
+    text-align: center;
+  }
+  footer p {
+    font-family: 'Barlow', sans-serif;
+    font-size: 14px;
+    color: rgba(24,22,15,0.45);
+    margin: 0;
+  }
+  footer a { color: rgba(24,22,15,0.45); text-decoration: underline; }
+
+  @media (max-width: 480px) {
+    main { padding: 32px 16px 64px; }
+    .bump-sheet { padding: 28px 20px 36px; border-radius: 16px 16px 0 0; }
+  }
+</style>
+
+<!-- UTM passthrough — persists UTMs in sessionStorage, appends to Shopify URLs -->
+<script>
+  (function () {
+    var UTM_KEYS = ['utm_source','utm_medium','utm_campaign','utm_id','utm_term','utm_content'];
+    var STORAGE_KEY = 'afa_utms';
+    function captureUTMs() {
+      var params = new URLSearchParams(window.location.search);
+      var found = {};
+      UTM_KEYS.forEach(function(k) { var v = params.get(k); if (v) found[k] = v; });
+      if (Object.keys(found).length > 0) sessionStorage.setItem(STORAGE_KEY, JSON.stringify(found));
+    }
+    function getUTMString() {
+      try {
+        var stored = sessionStorage.getItem(STORAGE_KEY);
+        if (!stored) return '';
+        var utms = JSON.parse(stored);
+        var pairs = [];
+        UTM_KEYS.forEach(function(k) { if (utms[k]) pairs.push(encodeURIComponent(k) + '=' + encodeURIComponent(utms[k])); });
+        return pairs.length ? pairs.join('&') : '';
+      } catch(e) { return ''; }
+    }
+    window._getUTMString = getUTMString;
+    captureUTMs();
+  })();
+</script>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">An Audience From Anywhere</a>
+  <div class="nav-links">
+    <a href="https://test.anaudiencefromanywhere.com" class="nav-link nav-btn-p" aria-label="The Camera Score" target="_blank" rel="noopener">
+      <span class="nav-icon-p"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></span>
+      <span class="nav-label-p">The Camera Score</span>
+    </a>
+    <a href="/preorder.html" class="nav-link nav-btn-p nav-active" aria-label="Pre-order">
+      <span class="nav-icon-p"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></span>
+      <span class="nav-label-p">Pre-order</span>
+    </a>
+    <a href="/gear" class="nav-link nav-btn-p" aria-label="Gear">
+      <span class="nav-icon-p"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></span>
+      <span class="nav-label-p">Gear</span>
+    </a>
+    <a href="/reviews.html" class="nav-link nav-btn-p" aria-label="Review Us">
+      <span class="nav-icon-p"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>
+      <span class="nav-label-p">Review Us</span>
+    </a>
+  </div>
+</nav>
+
+<main>
+  <div class="page-wrap">
+
+    <div class="eyebrow">Pre-order · Limited Pricing</div>
+    <h1>An Audience<br>From Anywhere</h1>
+    <p class="sub">Pre-order pricing is locked until launch. Pick your format — Hardcover includes everything below it.</p>
+
+    <!-- ── TIER CARDS ── -->
+    <div class="tiers" id="tiers">
+
+      <!-- DIGITAL: eBook + Audiobook -->
+      <label class="tier-card" id="card-digital" for="opt-digital">
+        <input type="radio" name="tier" value="digital" id="opt-digital" />
+        <div class="tier-top">
+          <div class="tier-left">
+            <div class="radio-dot"></div>
+            <div>
+              <div class="tier-name">Digital</div>
+              <div class="tier-includes">eBook + Audiobook</div>
+            </div>
+          </div>
+          <div class="tier-pricing">
+            <div class="tier-price">$15</div>
+            <div class="tier-compare">$51 full price</div>
+            <div class="tier-save">Save $36</div>
+          </div>
+        </div>
+        <div class="tier-detail">
+          <ul>
+            <li>eBook — read on any device</li>
+            <li>Audiobook — stream or download</li>
+            <li>Delivered after early access window closes</li>
+          </ul>
+        </div>
+      </label>
+
+      <!-- COMPLETE: eBook + Audiobook + Hardcover — MOST POPULAR -->
+      <label class="tier-card" id="card-complete" for="opt-complete">
+        <input type="radio" name="tier" value="complete" id="opt-complete" />
+        <div class="tier-badge">Most Popular</div>
+        <div class="tier-top">
+          <div class="tier-left">
+            <div class="radio-dot"></div>
+            <div>
+              <div class="tier-name">Complete</div>
+              <div class="tier-includes">Hardcover + eBook + Audiobook</div>
+            </div>
+          </div>
+          <div class="tier-pricing">
+            <div class="tier-price">$49</div>
+            <div class="tier-compare">$120 full price</div>
+            <div class="tier-save">Save $71</div>
+          </div>
+        </div>
+        <div class="tier-detail">
+          <ul>
+            <li>Hardcover — printed and shipped</li>
+            <li>eBook — read on any device</li>
+            <li>Audiobook — stream or download</li>
+            <li>Ships after early access window closes</li>
+          </ul>
+        </div>
+      </label>
+
+      <!-- FULL STACK: Everything + Logbook + Academy -->
+      <label class="tier-card" id="card-fullstack" for="opt-fullstack">
+        <input type="radio" name="tier" value="fullstack" id="opt-fullstack" />
+        <div class="tier-top">
+          <div class="tier-left">
+            <div class="radio-dot"></div>
+            <div>
+              <div class="tier-name">Full Stack</div>
+              <div class="tier-includes">Hardcover + eBook + Audiobook + Logbook + AFA Academy '26</div>
+            </div>
+          </div>
+          <div class="tier-pricing">
+            <div class="tier-price">$79</div>
+            <div class="tier-compare">$339 full price</div>
+            <div class="tier-save">Save $260</div>
+          </div>
+        </div>
+        <div class="tier-detail">
+          <ul>
+            <li>Hardcover — printed and shipped</li>
+            <li>eBook + Audiobook — digital delivery</li>
+            <li>The Logbook — structured companion workbook</li>
+            <li>AFA Academy '26 — full course access</li>
+            <li>Everything ships / unlocks after early access closes</li>
+          </ul>
+        </div>
+      </label>
+
+    </div>
+
+    <!-- ── SAVINGS TALLY ── -->
+    <div class="savings-bar hidden" id="savings-bar">
+      <div class="savings-label">You're saving</div>
+      <div class="savings-amount" id="savings-amount">$0</div>
+      <div class="savings-sub" id="savings-sub">off full price</div>
+    </div>
+
+    <!-- ── SCANS ADD-ON (inline checkbox) ── -->
+    <div class="scans-addon" id="scans-addon">
+      <input type="checkbox" id="scans-check" />
+      <div class="check-box" id="check-box-el"></div>
+      <div class="scans-text">
+        <div class="scans-label">Add 10 Camera Score scans — $10</div>
+        <div class="scans-desc">Ran out? This adds ten more. Track your progress or scan a colleague.</div>
+      </div>
+      <div>
+        <div class="scans-price">$10</div>
+        <div class="scans-was">$15</div>
+      </div>
+    </div>
+
+    <!-- ── CTA ── -->
+    <div class="cta-wrap">
+      <button class="cta-btn" id="cta-btn" disabled>Make a selection above</button>
+      <p class="trust-line">Secure checkout via Shopify<span>·</span>Charged now. Delivered after early access.</p>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- FORMAT DETAILS -->
+    <div class="section-label">What you get</div>
+    <div class="format-grid">
+      <div class="format-row">
+        <div class="format-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#18160f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 8h10M7 12h10M7 16h6"/>
+          </svg>
+        </div>
+        <div class="format-text">
+          <div class="format-name">eBook</div>
+          <div class="format-desc">Full text. Digital delivery.</div>
+          <div class="format-ships">Ships after early access window closes</div>
+        </div>
+      </div>
+      <div class="format-row">
+        <div class="format-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#18160f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>
+          </svg>
+        </div>
+        <div class="format-text">
+          <div class="format-name">Audiobook</div>
+          <div class="format-desc">Full narration. Stream or download.</div>
+          <div class="format-ships">Ships after early access window closes</div>
+        </div>
+      </div>
+      <div class="format-row">
+        <div class="format-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#18160f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+          </svg>
+        </div>
+        <div class="format-text">
+          <div class="format-name">Hardcover</div>
+          <div class="format-desc">Printed and shipped.</div>
+          <div class="format-ships">Ships after early access window closes</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <p>
+    &copy; 2026 An Audience From Anywhere &nbsp;&middot;&nbsp;
+    <a href="mailto:support@anaudiencefromanywhere.com?subject=Requesting%20a%20refund%20for%20my%20purchase">Returns &amp; Refunds</a> &nbsp;&middot;&nbsp;
+    <a href="/cookie-policy.html">Cookie Policy</a> &nbsp;&middot;&nbsp;
+    <button onclick="silktideCookieBannerManager && silktideCookieBannerManager.openPreferences()" style="background:none;border:none;padding:0;font-family:'Barlow',sans-serif;font-size:14px;color:rgba(24,22,15,0.45);cursor:pointer;text-decoration:underline;">Cookie Settings</button>
+  </p>
+</footer>
+
+<!-- ── ORDER BUMP OVERLAY ── -->
+<div class="bump-overlay" id="bump-overlay">
+  <div class="bump-sheet" id="bump-sheet">
+    <!-- content injected by JS -->
+  </div>
+</div>
+
+<script>
+  // ── Variant IDs ──────────────────────────────────────────────────────────
+  const VARIANTS = {
+    ebook:      '53313578434859',   // eBook base $14
+    audio:      '53313578598699',   // Audiobook base $15
+    hard:       '53313578729771',   // Hardcover base $49
+    logbook:    '53348935336235',   // Logbook upsell $9
+    academy:    '53348944806187',   // AFA Academy '26 upsell $59
+    scans10:    '53348992549163',   // 10 Scans $10
+  };
+
+  // ── Tier definitions ──────────────────────────────────────────────────────
+  // Each tier: array of variant IDs that go into the Shopify cart URL
+  // Prices shown are pre-order prices
+  const TIERS = {
+    digital: {
+      label: 'Digital',
+      variants: [VARIANTS.ebook, VARIANTS.audio],
+      price: 15,
+      // Order bump: Logbook ($9) — not in this tier
+      bump: {
+        eyebrow: 'One addition',
+        title: 'The Logbook',
+        desc: 'The book diagnoses the problem. The Logbook is where you do something about it. A structured companion for the work that happens after reading.',
+        price: '$9',
+        was: '$24',
+        save: 'Save $15',
+        variant: VARIANTS.logbook,
+        yesLabel: 'Add the Logbook — $9',
+      }
+    },
+    complete: {
+      label: 'Complete',
+      variants: [VARIANTS.hard, VARIANTS.ebook, VARIANTS.audio],
+      price: 49,
+      // Order bump: Logbook ($9)
+      bump: {
+        eyebrow: 'One addition',
+        title: 'The Logbook',
+        desc: 'The book diagnoses the problem. The Logbook is where you do something about it. A structured companion for the work that happens after reading.',
+        price: '$9',
+        was: '$24',
+        save: 'Save $15',
+        variant: VARIANTS.logbook,
+        yesLabel: 'Add the Logbook — $9',
+      }
+    },
+    fullstack: {
+      label: 'Full Stack',
+      variants: [VARIANTS.hard, VARIANTS.ebook, VARIANTS.audio, VARIANTS.logbook, VARIANTS.academy],
+      price: 79,
+      // No bump — has everything
+      bump: null
+    }
+  };
+
+  const STORE = 'https://anaudiencefromanywhere.myshopify.com';
+
+  let selectedTier = null;
+  let scansAdded = false;
+  let bumpVariant = null; // variant to add if bump accepted
+
+  // ── Savings tally ────────────────────────────────────────────────
+  const TIER_SAVINGS = { digital: 36, complete: 71, fullstack: 260 };
+  const SCANS_SAVINGS = 5; // $15 full price − $10 preorder
+
+  const savingsBar    = document.getElementById('savings-bar');
+  const savingsAmount = document.getElementById('savings-amount');
+
+  function updateSavings() {
+    if (!selectedTier) return;
+    const total = TIER_SAVINGS[selectedTier] + (scansAdded ? SCANS_SAVINGS : 0);
+    const next  = '$' + total;
+    savingsBar.classList.remove('hidden');
+    if (savingsAmount.textContent !== next) {
+      savingsAmount.textContent = next;
+      savingsAmount.classList.remove('bump');
+      void savingsAmount.offsetWidth;
+      savingsAmount.classList.add('bump');
+      setTimeout(() => savingsAmount.classList.remove('bump'), 220);
+    }
+  }
+
+  // ── Card selection ──────────────────────────────────────────────────
+  const cards = document.querySelectorAll('.tier-card');
+  const ctaBtn = document.getElementById('cta-btn');
+
+  const CTA_LABELS = {
+    digital:   'Pre-order Digital — $15 →',
+    complete:  'Pre-order Complete — $49 →',
+    fullstack: 'Pre-order Full Stack — $79 →',
+  };
+
+  cards.forEach(card => {
+    card.addEventListener('click', () => {
+      cards.forEach(c => c.classList.remove('selected'));
+      card.classList.add('selected');
+      const radio = card.querySelector('input[type="radio"]');
+      radio.checked = true;
+      selectedTier = radio.value;
+      ctaBtn.textContent = CTA_LABELS[selectedTier] || 'Continue →';
+      ctaBtn.classList.add('ready');
+      ctaBtn.disabled = false;
+      updateSavings();
+    });
+  });
+
+  // ── Scans checkbox ────────────────────────────────────────────────
+  const scansAddon = document.getElementById('scans-addon');
+  const scansCheck = document.getElementById('scans-check');
+  const checkBoxEl = document.getElementById('check-box-el');
+
+  scansAddon.addEventListener('click', () => {
+    scansAdded = !scansAdded;
+    scansCheck.checked = scansAdded;
+    scansAddon.classList.toggle('checked', scansAdded);
+    updateSavings();
+  });
+
+  // ── CTA click ─────────────────────────────────────────────────────────────
+  ctaBtn.addEventListener('click', () => {
+    if (!selectedTier) return;
+    const tier = TIERS[selectedTier];
+    if (!tier) return;
+
+    if (tier.bump) {
+      showBump(tier);
+    } else {
+      goToCheckout(tier.variants, null);
+    }
+  });
+
+  // ── Order bump ────────────────────────────────────────────────────────────
+  const bumpOverlay = document.getElementById('bump-overlay');
+  const bumpSheet   = document.getElementById('bump-sheet');
+
+  function showBump(tier) {
+    const b = tier.bump;
+    const baseTotal = tier.price + (scansAdded ? 10 : 0);
+    const withBump  = baseTotal + parseInt(b.price.replace('$',''));
+
+    bumpSheet.innerHTML = `
+      <div class="bump-eyebrow">${b.eyebrow}</div>
+      <div class="bump-summary">
+        <div class="bump-summary-row"><span>${tier.label}</span><span>$${tier.price}</span></div>
+        ${scansAdded ? `<div class="bump-summary-row"><span>10 Camera Scans</span><span>$10</span></div>` : ''}
+        <div class="bump-summary-row total"><span>Your order so far</span><span>$${baseTotal}</span></div>
+      </div>
+      <div class="bump-divider"></div>
+      <div class="bump-title">${b.title}</div>
+      <div class="bump-desc">${b.desc}</div>
+      <div class="bump-pricing">
+        <div class="bump-price">${b.price}</div>
+        <div class="bump-was">${b.was}</div>
+        <div class="bump-save">${b.save}</div>
+      </div>
+      <button class="bump-yes" id="bump-yes-btn">${b.yesLabel}</button>
+      <button class="bump-no" id="bump-no-btn">No thanks, continue to checkout</button>
+    `;
+
+    bumpVariant = b.variant;
+    bumpOverlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+
+    document.getElementById('bump-yes-btn').addEventListener('click', () => {
+      closeBump();
+      goToCheckout(tier.variants, bumpVariant);
+    });
+    document.getElementById('bump-no-btn').addEventListener('click', () => {
+      closeBump();
+      goToCheckout(tier.variants, null);
+    });
+  }
+
+  function closeBump() {
+    bumpOverlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  // Close on backdrop click
+  bumpOverlay.addEventListener('click', e => {
+    if (e.target === bumpOverlay) closeBump();
+  });
+
+  // ── Build cart URL and go ─────────────────────────────────────────────────
+  function goToCheckout(tierVariants, extraVariant) {
+    const allVariants = [...tierVariants];
+    if (extraVariant) allVariants.push(extraVariant);
+    if (scansAdded) allVariants.push(VARIANTS.scans10);
+
+    const items = allVariants.map(v => v + ':1').join(',');
+    let url = STORE + '/cart/' + items;
+
+    // Pre-fill email if available from Camera Score tool or sessionStorage
+    const email = getStoredEmail();
+    const utms  = typeof window._getUTMString === 'function' ? window._getUTMString() : '';
+
+    const params = [];
+    if (email) params.push('checkout[email]=' + encodeURIComponent(email));
+    if (utms)  params.push(utms);
+    if (params.length) url += '?' + params.join('&');
+
+    window.location.href = url;
+  }
+
+  function getStoredEmail() {
+    try {
+      // Camera Score tool stores email in sessionStorage
+      return sessionStorage.getItem('afa_email') || localStorage.getItem('afa_email') || '';
+    } catch(e) { return ''; }
+  }
+</script>
+
+<!-- LinkedIn Insight Tag -->
+<script type="text/javascript">
+_linkedin_partner_id = "9225924";
+window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+</script>
+<script type="text/javascript">
+(function(l) {
+if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
+window.lintrk.q=[]}
+var s = document.getElementsByTagName("script")[0];
+var b = document.createElement("script");
+b.type = "text/javascript";b.async = true;
+b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+s.parentNode.insertBefore(b, s);})(window.lintrk);
+</script>
+<noscript>
+<img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=9225924&fmt=gif" />
+</noscript>
+
+</body>
+</html>

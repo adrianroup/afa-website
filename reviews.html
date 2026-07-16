@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<!-- ── Cookie Consent: Silktide + GA4 Consent Mode v2 ── -->
+<!-- STEP 1: Google Consent Mode v2 — default deny BEFORE GA4 loads -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    analytics_storage: 'denied',
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    wait_for_update: 500
+  });
+  gtag('js', new Date());
+</script>
+<!-- STEP 2: GA4 — loads but respects consent mode, no cookies until accepted -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7L4F1HMHKX"></script>
+
+<!-- STEP 3: Silktide — CSS and JS before config -->
+<link rel="stylesheet" href="/cookie-banner/silktide-consent-manager.css">
+<script src="/cookie-banner/silktide-consent-manager.js"></script>
+<script>
+silktideCookieBannerManager.updateCookieBannerConfig({
+  background: { showBackground: true },
+  cookieIcon: { position: "bottomLeft" },
+  cookieTypes: [
+    {
+      id: "necessary",
+      name: "Necessary",
+      description: "<p>These cookies are necessary for the website to function properly and cannot be switched off.</p>",
+      required: true,
+      onAccept: function() {}
+    },
+    {
+      id: "analytics",
+      name: "Analytics",
+      description: "<p>These cookies help us understand how visitors use the site by tracking which pages are most popular.</p>",
+      defaultValue: true,
+      onAccept: function() {
+        gtag('consent', 'update', { analytics_storage: 'granted' });
+        gtag('config', 'G-7L4F1HMHKX');
+        dataLayer.push({ event: 'consent_accepted_analytics' });
+      },
+      onReject: function() {
+        gtag('consent', 'update', { analytics_storage: 'denied' });
+      }
+    },
+    {
+      id: "advertising",
+      name: "Advertising",
+      description: "<p>These cookies are used for advertising personalisation and campaign measurement via LinkedIn and Klaviyo.</p>",
+      onAccept: function() {
+        gtag('consent', 'update', { ad_storage: 'granted', ad_user_data: 'granted', ad_personalization: 'granted' });
+        dataLayer.push({ event: 'consent_accepted_advertising' });
+      },
+      onReject: function() {
+        gtag('consent', 'update', { ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' });
+      }
+    }
+  ],
+  text: {
+    banner: {
+      description: "<p>We use cookies to improve your experience and analyse traffic. <a href='/cookie-policy.html' target='_blank'>Cookie Policy</a>.</p>",
+      acceptAllButtonText: "Accept all",
+      rejectNonEssentialButtonText: "Reject non-essential",
+      preferencesButtonText: "Preferences"
+    },
+    preferences: {
+      title: "Customise your cookie preferences",
+      description: "<p>You can choose not to allow some types of cookies. Your choices apply across our website.</p>",
+      creditLinkText: "Get this banner for free"
+    }
+  }
+});
+</script>
+<!-- ── End Cookie Consent ── -->
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Review Us — An Audience From Anywhere</title>
+<meta name="description" content="Enjoyed the book? Leave a review and help others find it." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #f4f2ed;
+    --bg2: #ebe8e1;
+    --text: #18160f;
+    --muted: #6b6560;
+    --red: #C0392B;
+    --gold: #8a6a2e;
+    --border: rgba(24,22,15,0.12);
+    --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Barlow', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+
+  /* HEADER */
+  .site-header {
+    background: #18160f;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    padding: 20px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .site-header a { text-decoration: none; }
+  .site-logo {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+  }
+  .site-logo span { color: #ffffff; }
+  .site-logo:hover { color: #C0392B; }
+  .site-logo:hover span { color: #C0392B; }
+  .header-cta {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--red);
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  .header-cta:hover { opacity: 0.7; }
+  .site-nav { display: flex; align-items: center; gap: 28px; }
+  .site-nav-link {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    text-decoration: none;
+    transition: color 0.2s, font-weight 0.2s;
+  }
+  .site-nav-link:hover { color: rgba(255,255,255,0.8); }
+  .site-nav-active { color: #ffffff !important; font-weight: 900 !important; cursor: default; pointer-events: none; }
+
+  /* PAGE */
+  .page-wrap {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 80px 24px 120px;
+    text-align: center;
+  }
+  .eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 20px;
+  }
+  .page-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(40px, 7vw, 68px);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    line-height: 1.0;
+    color: var(--text);
+    margin-bottom: 24px;
+  }
+  .page-sub {
+    font-size: 17px;
+    color: var(--muted);
+    max-width: 520px;
+    margin: 0 auto 64px;
+    line-height: 1.65;
+  }
+
+  /* CARDS */
+  .review-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    text-align: left;
+  }
+  .review-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 32px 28px;
+    text-decoration: none;
+    color: var(--text);
+    transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
+  }
+  .review-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 28px rgba(0,0,0,0.07);
+  }
+  .review-platform {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 14px;
+  }
+  .review-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 26px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: var(--text);
+    margin-bottom: 10px;
+  }
+  .review-desc {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.6;
+    flex: 1;
+    margin-bottom: 24px;
+  }
+  .review-cta {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .coming-soon {
+    opacity: 0.4;
+    pointer-events: none;
+    cursor: default;
+  }
+  .coming-soon .review-cta {
+    color: var(--muted);
+  }
+  .badge-soon {
+    display: inline-block;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 2px 7px;
+    margin-bottom: 14px;
+  }
+
+  /* FOOTER NOTE */
+  .footer-note {
+    margin-top: 64px;
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+
+
+  @media (max-width: 700px) {
+    .site-nav { gap: 8px; }
+    .site-nav-link .nav-label { display: none; }
+    .site-nav-link .nav-icon { display: flex; }
+    .site-nav-link {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+    }
+    .header-cta { display: none; }
+  }
+  @media (min-width: 701px) {
+    .site-nav-link .nav-icon { display: none; }
+    .site-nav-link .nav-label { display: inline; }
+  }
+  @media (max-width: 600px) {
+    .site-header { padding: 16px 20px; }
+    .page-wrap { padding: 56px 20px 80px; }
+    .site-nav { gap: 16px; }
+  }
+</style>
+  <!-- UTM Passthrough — captures UTM params on arrival, persists in sessionStorage,
+       appends to all Shopify-bound links so attribution survives to checkout.
+       UTMs are not personal data — no cookie consent required. -->
+  <script>
+    (function () {
+      var UTM_KEYS = ['utm_source','utm_medium','utm_campaign','utm_id','utm_term','utm_content'];
+      var STORAGE_KEY = 'afa_utms';
+
+      // 1. On page load: capture UTMs from URL and store in sessionStorage
+      //    Only overwrite stored UTMs if new ones are present in the URL
+      function captureUTMs() {
+        var params = new URLSearchParams(window.location.search);
+        var found = {};
+        UTM_KEYS.forEach(function(k) {
+          var v = params.get(k);
+          if (v) found[k] = v;
+        });
+        if (Object.keys(found).length > 0) {
+          sessionStorage.setItem(STORAGE_KEY, JSON.stringify(found));
+        }
+      }
+
+      // 2. Build a query string from stored UTMs
+      function getUTMString() {
+        try {
+          var stored = sessionStorage.getItem(STORAGE_KEY);
+          if (!stored) return '';
+          var utms = JSON.parse(stored);
+          var pairs = [];
+          UTM_KEYS.forEach(function(k) {
+            if (utms[k]) pairs.push(encodeURIComponent(k) + '=' + encodeURIComponent(utms[k]));
+          });
+          return pairs.length ? pairs.join('&') : '';
+        } catch(e) { return ''; }
+      }
+
+      // 3. Determine if a URL is Shopify-bound
+      function isShopifyBound(href) {
+        if (!href || href.charAt(0) === '#') return false;
+        // Absolute Shopify URLs
+        if (href.indexOf('myshopify.com') !== -1) return true;
+        if (href.indexOf('shopify.com') !== -1) return true;
+        if (href.indexOf('afascore.com') !== -1) return true;
+        // Relative paths to cart/checkout
+        var path = href.split('?')[0].split('#')[0];
+        if (/^\/cart(\/|$)/.test(path)) return true;
+        if (/^\/checkout(\/|$)/.test(path)) return true;
+        return false;
+      }
+
+      // 4. Append UTMs to a URL (handles existing query params correctly)
+      function appendUTMs(href, utmString) {
+        if (!utmString) return href;
+        // Don't double-append if UTMs already present
+        if (href.indexOf('utm_') !== -1) return href;
+        var separator = href.indexOf('?') !== -1 ? '&' : '?';
+        return href + separator + utmString;
+      }
+
+      // 5. Rewrite all Shopify-bound links on the page
+      function rewriteLinks() {
+        var utmString = getUTMString();
+        if (!utmString) return; // Nothing to append — leave links untouched
+        var links = document.querySelectorAll('a[href]');
+        links.forEach(function(a) {
+          if (isShopifyBound(a.getAttribute('href'))) {
+            a.href = appendUTMs(a.href, utmString);
+          }
+        });
+      }
+
+      // 6. MutationObserver — rewrites any links added to the DOM after initial load
+      function observeNewLinks() {
+        var utmString = getUTMString();
+        if (!utmString) return;
+        var observer = new MutationObserver(function(mutations) {
+          mutations.forEach(function(m) {
+            m.addedNodes.forEach(function(node) {
+              if (node.nodeType !== 1) return;
+              var links = node.tagName === 'A' ? [node] : Array.from(node.querySelectorAll('a[href]'));
+              links.forEach(function(a) {
+                if (isShopifyBound(a.getAttribute('href'))) {
+                  a.href = appendUTMs(a.href, utmString);
+                }
+              });
+            });
+          });
+        });
+        observer.observe(document.body, { childList: true, subtree: true });
+      }
+
+      // Run capture immediately (before DOM ready — URLSearchParams works without DOM)
+      captureUTMs();
+
+      // Rewrite links once DOM is ready
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function() {
+          rewriteLinks();
+          observeNewLinks();
+        });
+      } else {
+        rewriteLinks();
+        observeNewLinks();
+      }
+    })();
+  </script>
+  <!-- LinkedIn Insight Tag — required for all LinkedIn Ads conversion tracking -->
+  <script type="text/javascript">
+    _linkedin_partner_id = "9225924";
+    window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+    window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+  </script>
+  <script type="text/javascript">
+    (function(l) {
+      if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
+      window.lintrk.q=[]}
+      var s = document.getElementsByTagName("script")[0];
+      var b = document.createElement("script");
+      b.type = "text/javascript";b.async = true;
+      b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+      s.parentNode.insertBefore(b, s);})(window.lintrk);
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=9225924&fmt=gif" />
+  </noscript>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <a href="/" class="site-logo">An Audience <span>From Anywhere</span></a>
+  <nav class="site-nav">
+    <a href="https://test.anaudiencefromanywhere.com" class="site-nav-link" aria-label="The Camera Score" target="_blank" rel="noopener"><span class="nav-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></span><span class="nav-label">The Camera Score</span></a>
+    <a href="/preorder.html" class="site-nav-link" aria-label="Pre-order"><span class="nav-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></span><span class="nav-label">Pre-order</span></a>
+    <a href="/gear" class="site-nav-link" aria-label="Gear"><span class="nav-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></span><span class="nav-label">Gear</span></a>
+    <a href="/reviews.html" class="site-nav-link site-nav-active" aria-label="Review Us"><span class="nav-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span><span class="nav-label">Review Us</span></a>
+  </nav>
+  <a href="/preorder.html" class="header-cta">Get the Book &rarr;</a>
+</header>
+
+<!-- PAGE -->
+<div class="page-wrap">
+  <p class="eyebrow">Adrian Roup &middot; An Audience From Anywhere</p>
+  <h1 class="page-title">Leave a Review</h1>
+  <p class="page-sub">If the book helped you, saying so publicly helps someone else find it. Takes two minutes.</p>
+
+  <div class="review-grid">
+
+    <!-- SHOPIFY -->
+    <div class="review-card">
+      <p class="review-platform">Kindly Leave A Review on:</p>
+      <p class="review-name">Judge.Me</p>
+      <p class="review-desc">Leave a verified review and help other readers find it.</p>
+      <a class="review-cta" href="https://judge.me/product_reviews/533b73e9-0b18-4e22-9f57-6bd0d98559b1/new?source=shareable-link" target="_blank" rel="noopener">Leave a review →</a>
+    </div>
+
+    <!-- GOODREADS — LIVE -->
+    <div class="review-card">
+      <p class="review-platform">Kindly Leave A Review on:</p>
+      <p class="review-name">Goodreads</p>
+      <p class="review-desc">Leave a verified review and help other readers find it.</p>
+      <a class="review-cta" href="https://www.goodreads.com/book/show/253048638-an-audience-from-anywhere" target="_blank" rel="noopener">Leave a review →</a>
+    </div>
+
+  </div>
+
+  <p class="footer-note">Thank you. Every review makes a difference.</p>
+</div>
+
+<footer style="background:#f4f2ed;border-top:1px solid rgba(24,22,15,0.09);padding:24px 0;text-align:center;">
+  <p style="font-family:'Barlow',sans-serif;font-size:14px;color:rgba(24,22,15,0.45);margin:0;">
+    &copy; 2026 An Audience From Anywhere &nbsp;&middot;&nbsp;
+    <a href="mailto:support@anaudiencefromanywhere.com?subject=Requesting%20a%20refund%20for%20my%20purchase" style="color:rgba(24,22,15,0.45);text-decoration:underline;">Returns &amp; Refunds</a> &nbsp;&middot;&nbsp; <a href="/cookie-policy.html" style="color:rgba(24,22,15,0.45);text-decoration:underline;">Cookie Policy</a> &nbsp;&middot;&nbsp; <button onclick="silktideCookieBannerManager &amp;&amp; silktideCookieBannerManager.openPreferences()" style="background:none;border:none;padding:0;font-family:'Barlow',sans-serif;font-size:14px;color:rgba(24,22,15,0.45);cursor:pointer;text-decoration:underline;">Cookie Settings</button>
+  </p>
+</footer>
+
+</body>
+</html>

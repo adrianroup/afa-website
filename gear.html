@@ -1,0 +1,1494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<!-- ── Cookie Consent: Silktide + GA4 Consent Mode v2 ── -->
+<!-- STEP 1: Google Consent Mode v2 — default deny BEFORE GA4 loads -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    analytics_storage: 'denied',
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    wait_for_update: 500
+  });
+  gtag('js', new Date());
+</script>
+<!-- STEP 2: GA4 — loads but respects consent mode, no cookies until accepted -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7L4F1HMHKX"></script>
+
+<!-- STEP 3: Silktide — CSS and JS before config -->
+<link rel="stylesheet" href="/cookie-banner/silktide-consent-manager.css">
+<script src="/cookie-banner/silktide-consent-manager.js"></script>
+<script>
+silktideCookieBannerManager.updateCookieBannerConfig({
+  background: { showBackground: true },
+  cookieIcon: { position: "bottomLeft" },
+  cookieTypes: [
+    {
+      id: "necessary",
+      name: "Necessary",
+      description: "<p>These cookies are necessary for the website to function properly and cannot be switched off.</p>",
+      required: true,
+      onAccept: function() {}
+    },
+    {
+      id: "analytics",
+      name: "Analytics",
+      description: "<p>These cookies help us understand how visitors use the site by tracking which pages are most popular.</p>",
+      defaultValue: true,
+      onAccept: function() {
+        gtag('consent', 'update', { analytics_storage: 'granted' });
+        gtag('config', 'G-7L4F1HMHKX');
+        dataLayer.push({ event: 'consent_accepted_analytics' });
+      },
+      onReject: function() {
+        gtag('consent', 'update', { analytics_storage: 'denied' });
+      }
+    },
+    {
+      id: "advertising",
+      name: "Advertising",
+      description: "<p>These cookies are used for advertising personalisation and campaign measurement via LinkedIn and Klaviyo.</p>",
+      onAccept: function() {
+        gtag('consent', 'update', { ad_storage: 'granted', ad_user_data: 'granted', ad_personalization: 'granted' });
+        dataLayer.push({ event: 'consent_accepted_advertising' });
+      },
+      onReject: function() {
+        gtag('consent', 'update', { ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' });
+      }
+    }
+  ],
+  text: {
+    banner: {
+      description: "<p>We use cookies to improve your experience and analyse traffic. <a href='/cookie-policy.html' target='_blank'>Cookie Policy</a>.</p>",
+      acceptAllButtonText: "Accept all",
+      rejectNonEssentialButtonText: "Reject non-essential",
+      preferencesButtonText: "Preferences"
+    },
+    preferences: {
+      title: "Customise your cookie preferences",
+      description: "<p>You can choose not to allow some types of cookies. Your choices apply across our website.</p>",
+      creditLinkText: "Get this banner for free"
+    }
+  }
+});
+</script>
+<!-- ── End Cookie Consent ── -->
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Stuff I Use — An Audience From Anywhere</title>
+<meta name="description" content="Everything I actually use to look and sound great on camera. Curated by Adrian Roup." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #f4f2ed;
+    --bg2: #ebe8e1;
+    --text: #18160f;
+    --muted: #6b6560;
+    --red: #C0392B;
+    --gold: #8a6a2e;
+    --border: rgba(24,22,15,0.12);
+    --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Barlow', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* HEADER */
+  .site-header {
+    background: #18160f;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    padding: 20px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .site-header a { text-decoration: none; }
+  .site-logo {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+  }
+  .site-logo span { color: #ffffff; }
+  .site-logo:hover { color: #C0392B; }
+  .site-logo:hover span { color: #C0392B; }
+  .header-cta {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--red);
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  .header-cta:hover { opacity: 0.7; }
+  .site-nav { display: flex; align-items: center; gap: 28px; }
+  .site-nav-link {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    text-decoration: none;
+    transition: color 0.2s, font-weight 0.2s;
+  }
+  .site-nav-link:hover { color: rgba(255,255,255,0.8); }
+  .site-nav-active { color: #ffffff !important; font-weight: 900 !important; cursor: default; pointer-events: none; }
+
+  /* HERO */
+  .hero {
+    text-align: center;
+    padding: 80px 24px 56px;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .hero-eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 16px;
+  }
+  .hero-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(42px, 7vw, 72px);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    line-height: 1.0;
+    color: var(--text);
+    margin-bottom: 24px;
+  }
+  .hero-sub {
+    font-size: 17px;
+    color: var(--muted);
+    max-width: 520px;
+    margin: 0 auto 16px;
+    line-height: 1.7;
+  }
+  .hero-note {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(154,150,144,0.6);
+    margin-top: 8px;
+  }
+
+  /* NAV PILLS */
+  .cat-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    padding: 0 24px 48px;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+  .cat-pill {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    padding: 6px 14px;
+    text-decoration: none;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .cat-pill:hover { color: var(--text); border-color: rgba(232,230,224,0.35); }
+
+  /* MAIN LAYOUT */
+  .page-body {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 24px 120px;
+  }
+
+  /* SECTION */
+  .gear-section { margin-bottom: 72px; }
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 24px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text);
+  }
+  .section-count {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* GEAR GRID */
+  .gear-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+  }
+
+  /* GEAR CARD */
+  .gear-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-decoration: none;
+    transition: border-color 0.25s var(--ease), transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
+    position: relative;
+  }
+  .gear-card:hover {
+    border-color: rgba(232,230,224,0.35);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.06);
+  }
+  .card-badge {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold);
+    background: rgba(200,169,110,0.1);
+    border: 1px solid rgba(200,169,110,0.25);
+    border-radius: 2px;
+    padding: 3px 8px;
+    display: inline-block;
+    align-self: flex-start;
+  }
+  .card-badge.badge-software { color: #7eb8c9; background: rgba(126,184,201,0.08); border-color: rgba(126,184,201,0.2); }
+  .card-badge.badge-diy { color: #a8c97e; background: rgba(168,201,126,0.08); border-color: rgba(168,201,126,0.2); }
+  .card-badge.badge-camera { color: #c9a87e; background: rgba(201,168,126,0.08); border-color: rgba(201,168,126,0.2); }
+  .card-badge.badge-lighting { color: #e0c96e; background: rgba(224,201,110,0.08); border-color: rgba(224,201,110,0.2); }
+  .card-badge.badge-audio { color: #b87ec9; background: rgba(184,126,201,0.08); border-color: rgba(184,126,201,0.2); }
+  .card-badge.badge-desk { color: #7ec9a8; background: rgba(126,201,168,0.08); border-color: rgba(126,201,168,0.2); }
+  .card-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--text);
+    line-height: 1.25;
+  }
+  .card-desc {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.55;
+    flex: 1;
+  }
+  .card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 4px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+  }
+  .card-commission {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(154,150,144,0.7);
+  }
+  .card-commission span { color: var(--gold); }
+  .card-arrow {
+    font-size: 14px;
+    color: var(--muted);
+    transition: transform 0.2s, color 0.2s;
+  }
+  .gear-card:hover .card-arrow { transform: translateX(4px); color: var(--text); }
+
+  /* WIDE CARD (full-width items) */
+  .gear-card.wide { grid-column: 1 / -1; flex-direction: row; align-items: flex-start; gap: 20px; }
+  .gear-card.wide .card-body { flex: 1; display: flex; flex-direction: column; gap: 10px; }
+  .gear-card.wide .card-footer { margin-top: auto; padding-top: 12px; border-top: 1px solid var(--border); }
+
+  /* DIVIDER */
+  .suggest-row {
+    margin-top: 24px;
+    padding: 16px 20px;
+    border: 1px dashed rgba(154,150,144,0.2);
+    border-radius: 3px;
+  }
+  .suggest-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+  .suggest-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+  .suggest-chip {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    background: rgba(232,230,224,0.04);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    padding: 5px 12px;
+    text-decoration: none;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .suggest-chip:hover { color: var(--text); border-color: rgba(232,230,224,0.3); }
+
+  /* CTA STRIP */
+  .cta-strip {
+    margin-top: 80px;
+    padding: 48px 40px;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    text-align: center;
+  }
+  .cta-strip-eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 12px;
+  }
+  .cta-strip-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text);
+    margin-bottom: 16px;
+    line-height: 1.1;
+  }
+  .cta-strip-sub {
+    font-size: 15px;
+    color: var(--muted);
+    max-width: 460px;
+    margin: 0 auto 28px;
+  }
+  .btn-primary {
+    display: inline-block;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #18160f;
+    background: transparent;
+    border: 2px solid #18160f;
+    padding: 14px 32px;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .btn-primary:hover {
+    background: #C0392B;
+    color: #ffffff;
+    border-color: #C0392B;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(192,57,43,0.35);
+  }
+
+  /* FOOTER */
+  .site-footer {
+    border-top: 1px solid var(--border);
+    padding: 32px 24px;
+    text-align: center;
+  }
+  .footer-note {
+    font-size: 13px;
+    color: rgba(154,150,144,0.5);
+    max-width: 560px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  /* RESPONSIVE */
+
+  @media (max-width: 700px) {
+    .site-nav { gap: 8px; }
+    .site-nav-link .nav-label { display: none; }
+    .site-nav-link .nav-icon { display: flex; }
+    .site-nav-link {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+    }
+    .header-cta { display: none; }
+  }
+  @media (min-width: 701px) {
+    .site-nav-link .nav-icon { display: none; }
+    .site-nav-link .nav-label { display: inline; }
+  }
+  @media (max-width: 600px) {
+    .site-header { padding: 16px 20px; }
+    .hero { padding: 56px 20px 40px; }
+    .gear-card.wide { flex-direction: column; }
+    .cta-strip { padding: 36px 24px; }
+  }
+</style>
+  <!-- UTM Passthrough — captures UTM params on arrival, persists in sessionStorage,
+       appends to all Shopify-bound links so attribution survives to checkout.
+       UTMs are not personal data — no cookie consent required. -->
+  <script>
+    (function () {
+      var UTM_KEYS = ['utm_source','utm_medium','utm_campaign','utm_id','utm_term','utm_content'];
+      var STORAGE_KEY = 'afa_utms';
+
+      // 1. On page load: capture UTMs from URL and store in sessionStorage
+      //    Only overwrite stored UTMs if new ones are present in the URL
+      function captureUTMs() {
+        var params = new URLSearchParams(window.location.search);
+        var found = {};
+        UTM_KEYS.forEach(function(k) {
+          var v = params.get(k);
+          if (v) found[k] = v;
+        });
+        if (Object.keys(found).length > 0) {
+          sessionStorage.setItem(STORAGE_KEY, JSON.stringify(found));
+        }
+      }
+
+      // 2. Build a query string from stored UTMs
+      function getUTMString() {
+        try {
+          var stored = sessionStorage.getItem(STORAGE_KEY);
+          if (!stored) return '';
+          var utms = JSON.parse(stored);
+          var pairs = [];
+          UTM_KEYS.forEach(function(k) {
+            if (utms[k]) pairs.push(encodeURIComponent(k) + '=' + encodeURIComponent(utms[k]));
+          });
+          return pairs.length ? pairs.join('&') : '';
+        } catch(e) { return ''; }
+      }
+
+      // 3. Determine if a URL is Shopify-bound
+      function isShopifyBound(href) {
+        if (!href || href.charAt(0) === '#') return false;
+        // Absolute Shopify URLs
+        if (href.indexOf('myshopify.com') !== -1) return true;
+        if (href.indexOf('shopify.com') !== -1) return true;
+        if (href.indexOf('afascore.com') !== -1) return true;
+        // Relative paths to cart/checkout
+        var path = href.split('?')[0].split('#')[0];
+        if (/^\/cart(\/|$)/.test(path)) return true;
+        if (/^\/checkout(\/|$)/.test(path)) return true;
+        return false;
+      }
+
+      // 4. Append UTMs to a URL (handles existing query params correctly)
+      function appendUTMs(href, utmString) {
+        if (!utmString) return href;
+        // Don't double-append if UTMs already present
+        if (href.indexOf('utm_') !== -1) return href;
+        var separator = href.indexOf('?') !== -1 ? '&' : '?';
+        return href + separator + utmString;
+      }
+
+      // 5. Rewrite all Shopify-bound links on the page
+      function rewriteLinks() {
+        var utmString = getUTMString();
+        if (!utmString) return; // Nothing to append — leave links untouched
+        var links = document.querySelectorAll('a[href]');
+        links.forEach(function(a) {
+          if (isShopifyBound(a.getAttribute('href'))) {
+            a.href = appendUTMs(a.href, utmString);
+          }
+        });
+      }
+
+      // 6. MutationObserver — rewrites any links added to the DOM after initial load
+      function observeNewLinks() {
+        var utmString = getUTMString();
+        if (!utmString) return;
+        var observer = new MutationObserver(function(mutations) {
+          mutations.forEach(function(m) {
+            m.addedNodes.forEach(function(node) {
+              if (node.nodeType !== 1) return;
+              var links = node.tagName === 'A' ? [node] : Array.from(node.querySelectorAll('a[href]'));
+              links.forEach(function(a) {
+                if (isShopifyBound(a.getAttribute('href'))) {
+                  a.href = appendUTMs(a.href, utmString);
+                }
+              });
+            });
+          });
+        });
+        observer.observe(document.body, { childList: true, subtree: true });
+      }
+
+      // Run capture immediately (before DOM ready — URLSearchParams works without DOM)
+      captureUTMs();
+
+      // Rewrite links once DOM is ready
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function() {
+          rewriteLinks();
+          observeNewLinks();
+        });
+      } else {
+        rewriteLinks();
+        observeNewLinks();
+      }
+    })();
+  </script>
+  <!-- LinkedIn Insight Tag — required for all LinkedIn Ads conversion tracking -->
+  <script type="text/javascript">
+    _linkedin_partner_id = "9225924";
+    window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+    window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+  </script>
+  <script type="text/javascript">
+    (function(l) {
+      if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
+      window.lintrk.q=[]}
+      var s = document.getElementsByTagName("script")[0];
+      var b = document.createElement("script");
+      b.type = "text/javascript";b.async = true;
+      b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+      s.parentNode.insertBefore(b, s);})(window.lintrk);
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=9225924&fmt=gif" />
+  </noscript>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <a href="/" class="site-logo">An Audience <span>From Anywhere</span></a>
+  <nav class="site-nav">
+    <a href="https://test.anaudiencefromanywhere.com" class="site-nav-link" aria-label="The Camera Score" target="_blank" rel="noopener"><span class="nav-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></span><span class="nav-label">The Camera Score</span></a>
+    <a href="/preorder.html" class="site-nav-link" aria-label="Pre-order"><span class="nav-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></span><span class="nav-label">Pre-order</span></a>
+    <a href="/gear" class="site-nav-link site-nav-active" aria-label="Gear"><span class="nav-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></span><span class="nav-label">Gear</span></a>
+    <a href="/reviews.html" class="site-nav-link" aria-label="Review Us"><span class="nav-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span><span class="nav-label">Review Us</span></a>
+  </nav>
+  <a href="/preorder.html" class="header-cta">Get the Book →</a>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-eyebrow">Adrian Roup · Curated Gear</p>
+  <h1 class="hero-title">Stuff I Use</h1>
+  <p class="hero-sub">Here are some things that might help you look and sound like you belong on screen.</p>
+  <p class="hero-note">Some links are affiliate links. You pay the same price either way.</p>
+</section>
+
+<!-- CATEGORY NAV -->
+<nav class="cat-nav">
+  <a class="cat-pill" href="#lighting">Lighting</a>
+  <a class="cat-pill" href="#cameras">Cameras & Webcams</a>
+  <a class="cat-pill" href="#audio">Audio</a>
+  <a class="cat-pill" href="#mounts">Mounts & Rigs</a>
+  <a class="cat-pill" href="#desk">Desk & Accessories</a>
+  <a class="cat-pill" href="#software">Software & Services</a>
+  <a class="cat-pill" href="#cosmetics">For Your Face</a>
+  <a class="cat-pill" href="#sleep">Get a Good Night's Sleep</a>
+  <a class="cat-pill" href="#promode">Pro Mode</a>
+</nav>
+
+<!-- MAIN -->
+<main class="page-body">
+
+  <!-- SOFTWARE & SERVICES -->
+  <section class="gear-section" id="software">
+    <div class="section-header">
+      <h2 class="section-title">Software & Services</h2>
+      <span class="section-count">12 items</span>
+    </div>
+    <div class="gear-grid">
+
+      <!-- OnlineJobs.ph affiliate: 40% recurring via aid=27861 -->
+      <a class="gear-card" href="https://store.onlinejobs.ph/?aid=27861" target="_blank" rel="noopener">
+        <span class="card-badge badge-software">Recommended</span>
+        <p class="card-name">OnlineJobs.ph</p>
+        <p class="card-desc">Hire Filipino remote workers directly — no platform cut on the hire, just a subscription fee. If you're building a team, this is how you do it properly.</p>
+        <div class="card-footer">
+          <span class="card-commission">Visit Site</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </a>
+
+      <!-- VidChops affiliate: 50% first sale via SamCart -->
+      <a class="gear-card" href="https://vidchops.samcart.com/referral/homepage/aC0KxUU6De3nyfOw" target="_blank" rel="noopener">
+        <span class="card-badge badge-software">Recommended</span>
+        <p class="card-name">VidChops Video Editing</p>
+        <p class="card-desc">Flat-rate video editing subscription. You shoot, they edit. 50% commission on the frontend — the highest single-sale rate in this list.</p>
+        <div class="card-footer">
+          <span class="card-commission">Visit Site</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </a>
+
+      <!-- Adobe Creative Cloud - direct affiliate, 85% first month / 8.33% annual -->
+      <a class="gear-card" href="https://www.adobe.com/affiliates.html" target="_blank" rel="noopener">
+        <span class="card-badge badge-software">Recommended</span>
+        <p class="card-name">Adobe Creative Cloud</p>
+        <p class="card-desc">Photoshop, Premiere Pro, Audition, After Effects. If you are editing your own footage, designing your own graphics, or cleaning up your own audio — this is the toolkit. Industry standard for a reason.</p>
+        <div class="card-footer">
+          <span class="card-commission">Adobe Direct</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </a>
+
+      <!-- Wispr Flow - affiliate via ref.wisprflow.ai, 25% recurring 12mo, 60-day cookie -->
+      <a class="gear-card" href="https://ref.wisprflow.ai/adrian-roup" target="_blank" rel="noopener">
+        <span class="card-badge badge-software">Recommended</span>
+        <p class="card-name">Wispr Flow</p>
+        <p class="card-desc">Voice dictation that removes filler words and cleans up your speech before it hits the screen. Write up to 4× faster than typing. Works anywhere you can type — email, docs, Slack, everything. The tool that makes your written voice sound like your best self.</p>
+        <div class="card-footer">
+          <span class="card-commission">Visit Site</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </a>
+
+      <!-- AfterShoot - direct affiliate 15-40% tiered, 70-day cookie -->
+      <a class="gear-card" href="https://aftershoot.com/partner-program/" target="_blank" rel="noopener">
+        <span class="card-badge badge-software">Recommended</span>
+        <p class="card-name">AfterShoot</p>
+        <p class="card-desc">AI-powered photo culling and editing. If you shoot a lot and spend hours selecting and editing before you even get to the good stuff — this is the tool that gives that time back. Smart, fast, and genuinely useful.</p>
+        <div class="card-footer">
+          <span class="card-commission">AfterShoot Direct</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </a>
+
+      <a class="gear-card" href="https://www.veed.io/affiliate" target="_blank" rel="noopener">
+        <span class="card-badge badge-software">Recommended</span>
+        <p class="card-name">VEED.io</p>
+        <p class="card-desc">Browser-based video editor with auto-captions, subtitles, and screen recording built in. The one I point non-editors to when they ask what to use.</p>
+        <div class="card-footer">
+          <span class="card-commission">Visit Site</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </a>
+
+      <!-- Riverside.fm affiliate: 20% recurring via Rewardful -->
+      <a class="gear-card" href="https://riverside.com/?utm_campaign=campaign_1&utm_medium=affiliate&utm_source=rewardful&via=adrian-roup" target="_blank" rel="noopener">
+        <span class="card-badge badge-software">Recommended</span>
+        <p class="card-name">Riverside.fm</p>
+        <p class="card-desc">Studio-quality recording from any browser. The one the professionals use when they need a remote guest to sound like they're in the room.</p>
+        <div class="card-footer">
+          <span class="card-commission">Visit Site</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </a>
+
+      <!-- Multiverse.ai affiliate: 20% unlimited via Rewardful -->
+      <a class="gear-card" href="https://www.themultiverse.ai/?via=adrian" target="_blank" rel="noopener">
+        <span class="card-badge badge-software">Recommended</span>
+        <p class="card-name">Multiverse.ai — AI Headshots</p>
+        <p class="card-desc">Professional AI headshots. Clean results, fast turnaround. Use code HEADSHOTS for 10% off.</p>
+        <div class="card-footer">
+          <span class="card-commission">Visit Site</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </a>
+
+      
+
+      <a class="gear-card" href="https://descript.com/affiliate" target="_blank" rel="noopener">
+        <span class="card-badge badge-software">Recommended</span>
+        <p class="card-name">Descript</p>
+        <p class="card-desc">Edit video by editing a transcript. Delete words, delete the footage. The most intuitive video editor for people who think in text.</p>
+        <div class="card-footer">
+          <span class="card-commission">Visit Site</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </a>
+
+      <!-- Perplexity AI - affiliate via partners.dub.co/perplexity -->
+      <a class="gear-card" href="https://partners.dub.co/perplexity" target="_blank" rel="noopener">
+        <span class="card-badge badge-software">Recommended</span>
+        <p class="card-name">Perplexity AI</p>
+        <p class="card-desc">The AI search engine that actually cites its sources. If your audience is curious, they’ll use it daily. Faster and more honest than a standard search — once you use it, you won’t go back.</p>
+        <div class="card-footer">
+          <span class="card-commission">Visit Site</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </a>
+
+      
+
+      
+
+      <a class="gear-card" href="https://yoodli.ai" target="_blank" rel="noopener">
+        <p class="card-name">Yoodli</p>
+        <p class="card-desc">AI communication coach. Practice your pitch, your talk, your Zoom opener — and get scored on filler words, pacing, and eye contact.</p>
+        <div class="card-footer">
+          <span class="card-commission">Visit Site</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </a>
+
+      
+
+      
+
+      
+
+      <!-- VideoTours.AI affiliate: ref=adrian -->
+      <a class="gear-card" href="https://videotour.ai/?ref=adrian" target="_blank" rel="noopener">
+        <p class="card-name">VideoTours.AI</p>
+        <p class="card-desc">AI-powered video tours for realtors. If you work in real estate or know people who do — this is the software that makes listings stand out.</p>
+        <div class="card-footer">
+          <span class="card-commission">Visit Site</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </a>
+
+
+    </div>
+  </section>
+
+  <!-- LIGHTING -->
+  <section class="gear-section" id="lighting">
+    <div class="section-header">
+      <h2 class="section-title">Lighting</h2>
+      <span class="section-count">8 items</span>
+    </div>
+    <div class="gear-grid">
+
+      <a class="gear-card" href="https://amarancreators.com" target="_blank" rel="noopener">
+        <span class="card-badge">Best Commission</span>
+        <p class="card-name">Amaran — Full Range</p>
+        <p class="card-desc">The lights I actually reach for. Amaran makes compact, colour-accurate RGBWW panels and tubes at prices that make the expensive alternatives hard to justify. The Verge Max Kit is the one to start with — portable, powerful, and built for exactly the kind of setup your camera sees every day.</p>
+        <div class="card-footer">
+          <span class="card-commission">Amaran Direct</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </a>
+
+      <a class="gear-card" href="https://www.aputure.com" target="_blank" rel="noopener">
+        <p class="card-name">Aputure — Professional Lights</p>
+        <p class="card-desc">The professional-grade sibling brand to Amaran. If Amaran is where you start, Aputure is where you end up when you're serious. The LS 60x and MC Pro are the ones that show up in broadcast studios and high-end content production.</p>
+        <div class="card-footer">
+          <span class="card-commission">Aputure Direct</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </a>
+
+      
+
+      <!-- Ulanzi UA12 - 10-12% direct affiliate via ulanzi.com aff=2553 -->
+      <a class="gear-card" href="https://www.ulanzi.com?aff=2553" target="_blank" rel="noopener">
+        <p class="card-name">Ulanzi UA12 Inflatable Tube Light</p>
+        <p class="card-desc">12W inflatable tube, 600mm. CRI≥95, 2700–6500K, 75 minutes at full brightness. Magnetic mount, 1/4" stand. Inflates in seconds, deflates into your bag. Soft, wrapping light from a source that fits anywhere.</p>
+        <div class="card-footer">
+          <span class="card-commission">Ulanzi Direct</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </a>
+
+      <!-- Ulanzi UA20 - 10-12% direct affiliate via ulanzi.com aff=2553 -->
+      <a class="gear-card" href="https://www.ulanzi.com?aff=2553" target="_blank" rel="noopener">
+        <p class="card-name">Ulanzi UA20 Inflatable Tube Light</p>
+        <p class="card-desc">20W, 900mm — the bigger sibling. IP66 waterproof, 55 minutes at full brightness, N52 magnets. More output, more reach, same pocketable design. For anyone who wants the tube light look without the tube light footprint.</p>
+        <div class="card-footer">
+          <span class="card-commission">Ulanzi Direct</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </a>
+
+      
+
+      
+
+      
+
+      <a class="gear-card" href="https://www.amazon.com/dp/B0DMBG251L?tag=afa095-20" target="_blank" rel="noopener">
+        <p class="card-name">OTUS Gesture Control Desk Lamp</p>
+        <p class="card-desc">Adjustable brightness, gesture control, clean lines. No more reaching across a cluttered desk to switch your light mid-call.</p>
+        <div class="card-footer">
+          <span class="card-commission">Amazon</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </a>
+
+      <a class="gear-card" href="https://www.amazon.com/dp/B003M15PJ0?tag=afa095-20" target="_blank" rel="noopener">
+        <p class="card-name">Cal Lighting BO-117FL Floor Lamp</p>
+        <p class="card-desc">Classic, warm, and a proper ambient source. Bounce it off a wall behind you and suddenly your background looks intentional.</p>
+        <div class="card-footer">
+          <span class="card-commission">Amazon</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </a>
+
+      <a class="gear-card" href="https://genionspace.com/pages/why-ditch-old-lamp" target="_blank" rel="noopener">
+        <span class="card-badge">New</span>
+        <p class="card-name">GeniOn DualGlow Lamp</p>
+        <p class="card-desc">Dual-source desk lamp designed specifically to eliminate the harsh shadows that make you look tired on camera. Worth a look.</p>
+        <div class="card-footer">
+          <span class="card-commission">Direct</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </a>
+
+      <!-- Sirui - Awin affiliate awinmid=76364 awinaffid=2524371 -->
+      <a class="gear-card" href="https://www.awin1.com/cread.php?awinmid=76364&awinaffid=2524371&ued=https%3A%2F%2Fstore.sirui.com" target="_blank" rel="noopener">
+        <span class="card-badge badge-lighting">Brand</span>
+        <p class="card-name">Sirui Lighting</p>
+        <p class="card-desc">LED panels, portable tube lights, and flexible bendable RGB lights. Sirui makes compact, high-output lighting that travels well and performs like gear that costs twice as much.</p>
+        <div class="card-footer">
+          <span class="card-commission">Visit Site</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- CAMERAS & WEBCAMS -->
+  <section class="gear-section" id="cameras">
+    <div class="section-header">
+      <h2 class="section-title">Cameras & Webcams</h2>
+      <span class="section-count">5 items</span>
+    </div>
+    <div class="gear-grid">
+
+      <a class="gear-card" href="https://www.obsbot.com" target="_blank" rel="noopener">
+        <span class="card-badge">Best Commission</span>
+        <p class="card-name">OBSBOT Tail Air / Meet 2</p>
+        <p class="card-desc">AI-powered PTZ cameras with auto-tracking that actually works. The Tail Air is a 4K streaming camera with gesture control. The Meet 2 is their premium webcam. Both solve the same problem as the Insta360 Link 2 — they follow you so you don't have to stay frozen.</p>
+        <div class="card-footer">
+          <span class="card-commission">OBSBOT Direct</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </a>
+
+      <a class="gear-card" href="https://www.logitech.com" target="_blank" rel="noopener">
+        <span class="card-badge">Top Pick</span>
+        <p class="card-name">Logitech Brio 4K / MX Brio</p>
+        <p class="card-desc">The most trusted name in webcams for a reason. The MX Brio shoots at 4K with a large sensor and an adjustable field of view. The camera most professionals reach for when they want something that works immediately without setup.</p>
+        <div class="card-footer">
+          <span class="card-commission">Logitech Direct</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </a>
+
+      <a class="gear-card" href="https://store.insta360.com" target="_blank" rel="noopener">
+        <p class="card-name">Insta360 Link 2 PTZ Webcam</p>
+        <p class="card-desc">4K, 1/2" sensor, AI tracking that follows you without looking like surveillance footage. The pick for anyone who moves when they talk — presenters, teachers, coaches.</p>
+        <div class="card-footer">
+          <span class="card-commission">Insta360 Direct</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </a>
+
+      <a class="gear-card" href="https://www.amazon.com/s?k=EMEET+Piko+Plus+4K&tag=afa095-20" target="_blank" rel="noopener">
+        <p class="card-name">EMEET Piko+ Dual-Camera 4K</p>
+        <p class="card-desc">1/2.55" Sony sensor, dual cameras, magnetic privacy cover. For livestreamers who want Sony glass without the full camera setup. The magnetic Panda cover is a genuinely good idea.</p>
+        <div class="card-footer">
+          <span class="card-commission">Amazon</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </a>
+
+      <a class="gear-card" href="https://icontactcamera.com" target="_blank" rel="noopener">
+        <p class="card-name">iContact Camera</p>
+        <p class="card-desc">Positions your webcam at eye-line so you're looking at the camera, not the screen. The fix for the "looking down" problem that makes everyone appear disengaged on calls.</p>
+        <div class="card-footer">
+          <span class="card-commission">Direct</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- AUDIO -->
+  <section class="gear-section" id="audio">
+    <div class="section-header">
+      <h2 class="section-title">Audio</h2>
+      <span class="section-count">4 items</span>
+    </div>
+    <div class="gear-grid">
+
+      <a class="gear-card" href="https://rode.com" target="_blank" rel="noopener">
+        <span class="card-badge">Best Commission</span>
+        <p class="card-name">RØDE — Full Range</p>
+        <p class="card-desc">The standard in broadcast-quality USB and wireless microphones for creators. The NT-USB Mini sits on your desk and sounds like a studio. The Wireless GO II clips to your collar and disappears. If someone asks what microphone to buy, RØDE is almost always the right answer.</p>
+        <div class="card-footer">
+          <span class="card-commission">RØDE Direct</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </a>
+
+      <a class="gear-card" href="https://www.shure.com" target="_blank" rel="noopener">
+        <p class="card-name">Shure — MV7 / MV7+</p>
+        <p class="card-desc">The MV7 is the microphone that makes people sound like they've been doing this for years. Dynamic capsule, USB and XLR out, built like a tank. The one podcasters and executives reach for when sound quality actually matters.</p>
+        <div class="card-footer">
+          <span class="card-commission">Shure Direct</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </a>
+
+      <a class="gear-card" href="https://deitymic.com" target="_blank" rel="noopener">
+        <span class="card-badge">Top Pick</span>
+        <p class="card-name">Deity VO-7U USB Broadcast Mic</p>
+        <p class="card-desc">Dynamic USB mic. Plug in, sound professional. RGB if you want it, off if you don't. The mic I reach for when someone wants great sound without a complicated setup.</p>
+        <div class="card-footer">
+          <span class="card-commission">Deity Direct</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </a>
+
+      <a class="gear-card" href="https://deitymic.com" target="_blank" rel="noopener">
+        <p class="card-name">Deity V.Lav Pro Lavalier Mic</p>
+        <p class="card-desc">USB-C lav with built-in signal processing. Designed specifically for laptops and smartphones. The answer when a desk mic isn't practical — interviews, walk-and-talks, anything mobile.</p>
+        <div class="card-footer">
+          <span class="card-commission">Deity Direct</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </a>
+
+      
+
+      <!-- Maono PD200X - direct affiliate up to 10% -->
+      
+
+      <!-- Hollyland Lark M2 - direct affiliate 8%, 45-day cookie -->
+      
+
+    </div>
+  </section>
+
+  <!-- MOUNTS & RIGS -->
+  <section class="gear-section" id="mounts">
+    <div class="section-header">
+      <h2 class="section-title">Mounts & Rigs</h2>
+      <span class="section-count">6 items</span>
+    </div>
+    <div class="gear-grid">
+
+      <a class="gear-card" href="https://monoblocc.com/products/magic-rig" target="_blank" rel="noopener">
+        <span class="card-badge">Top Pick</span>
+        <p class="card-name">Monoblocc Magic Rig</p>
+        <p class="card-desc">The modular desk rig system that makes everything else play nicely together. Built for people who take their setup seriously.</p>
+        <div class="card-footer">
+          <span class="card-commission">Monoblocc Direct</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </a>
+
+      <a class="gear-card" href="https://www.amazon.com/dp/B0CQ4RV72P?tag=afa095-20" target="_blank" rel="noopener">
+        <p class="card-name">RAUBAY All-Metal Desktop Magic Arm</p>
+        <p class="card-desc">Solid, adjustable, actually holds its position. The boring-but-essential piece that makes every other mount work properly.</p>
+        <div class="card-footer">
+          <span class="card-commission">Amazon</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </a>
+
+      <a class="gear-card" href="https://www.amazon.com/dp/B06XWSFX6D?tag=afa095-20" target="_blank" rel="noopener">
+        <p class="card-name">Neewer Wall Mount Triangle Boom Arm</p>
+        <p class="card-desc">Gets your light off the desk and out of frame without taking up floor space. The right solution for small rooms.</p>
+        <div class="card-footer">
+          <span class="card-commission">Amazon</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </a>
+
+      
+
+      
+
+      <a class="gear-card" href="https://www.amazon.com/s?k=Photography+Umbrella+Lighting+Kit+33+inch&tag=afa095-20" target="_blank" rel="noopener">
+        <p class="card-name">33" Translucent Umbrella Lighting Kit</p>
+        <p class="card-desc">White translucent + silver reflector. The cheapest way to get genuinely soft light. Works better than most purpose-built ring lights.</p>
+        <div class="card-footer">
+          <span class="card-commission">Amazon</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </a>
+
+      
+
+      <a class="gear-card" href="https://www.amazon.com/s?k=NEEWER+Continuity+Camera+Mount+SP08&tag=afa095-20" target="_blank" rel="noopener">
+        <p class="card-name">NEEWER Continuity Camera Mount (SP08)</p>
+        <p class="card-desc">MagSafe-compatible monitor-top phone mount with Arca-type base. Turns your iPhone into a proper Continuity Camera without duct tape.</p>
+        <div class="card-footer">
+          <span class="card-commission">Amazon</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </a>
+
+      <a class="gear-card" href="https://youtu.be/Pab_4puljeU" target="_blank" rel="noopener">
+        <span class="card-badge badge-diy">DIY</span>
+        <p class="card-name">Ulanzi D200 Steam Deck Mount (Video)</p>
+        <p class="card-desc">A clever rig build. Watch first, then decide if you want to buy the parts. The kind of lateral thinking that gets you a better result for less money.</p>
+        <div class="card-footer">
+          <span class="card-commission">Free Video</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- DESK & ACCESSORIES -->
+  <section class="gear-section" id="desk">
+    <div class="section-header">
+      <h2 class="section-title">Desk & Accessories</h2>
+      <span class="section-count">4 items</span>
+    </div>
+    <div class="gear-grid">
+
+      
+
+      <a class="gear-card" href="http://www.litones.net" target="_blank" rel="noopener">
+        <p class="card-name">Litones</p>
+        <p class="card-desc">Smart lighting panels with an eye for how light interacts with camera sensors — not just how it looks to the naked eye.</p>
+        <div class="card-footer">
+          <span class="card-commission">Direct</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </a>
+
+
+
+
+      <a class="gear-card" href="https://www.amazon.com/s?k=UPERGO+desk+drawer+organizer&tag=afa095-20" target="_blank" rel="noopener">
+        <p class="card-name">UPERGO Desk Drawer Organiser</p>
+        <p class="card-desc">A tidy desk is a happy desk. This is the organiser that gets cables, adapters, and batteries off the surface and out of frame.</p>
+        <div class="card-footer">
+          <span class="card-commission">Amazon</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </a>
+
+      <!-- Fengepro Rodin A212 - no affiliate program -->
+      <a class="gear-card" href="https://fengepro.com/products/rodin-monitor-riser-a212" target="_blank" rel="noopener">
+        <p class="card-name">Fengepro Rodin A212 Monitor Riser</p>
+        <p class="card-desc">42.5" wide, holds two 27" monitors, 88lb capacity. FSC-certified engineered wood and aluminium. Two-tier shelf, three storage compartments, built-in cable management. The desk riser that looks like it belongs there.</p>
+        <div class="card-footer">
+          <span class="card-commission">Direct</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </a>
+
+      <!-- Amazon B0D259K8X6 - Amazon Associates ~3% -->
+      <a class="gear-card" href="https://www.amazon.com/dp/B0D259K8X6?tag=afa095-20" target="_blank" rel="noopener">
+        <p class="card-name">Clip-On Desk Cup Holder</p>
+        <p class="card-desc">Clips to the edge of your desk. Keeps your drink off the surface and out of the shot. Fits bottles up to 3.38" in diameter. The fix that costs less than the spill.</p>
+        <div class="card-footer">
+          <span class="card-commission">Amazon</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </a>
+
+
+
+    </div>
+  </section>
+
+  <!-- COSMETICS -->
+  
+  
+
+<section class="gear-section" id="cosmetics">
+    <div class="section-header">
+      <h2 class="section-title">For Your Face</h2>
+      <span class="section-count">3 items</span>
+    </div>
+    <div class="gear-grid">
+
+      <a class="gear-card" href="https://www.amazon.com/dp/B0F1R4J464?tag=afa095-20" target="_blank" rel="noopener">
+        <span class="card-badge">Top Pick</span>
+        <p class="card-name">Chantecaille Radiance Gel Bronzer</p>
+        <p class="card-desc">Camera picks up flatness. A light gel bronzer adds dimension that reads naturally on screen without looking like you tried. This one in particular.</p>
+        <div class="card-footer">
+          <span class="card-commission">Amazon</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </a>
+
+      <a class="gear-card" href="https://www.amazon.com/dp/B0FBJWRVJ4?tag=afa095-20" target="_blank" rel="noopener">
+        <p class="card-name">Zelens Triple Action Eye Cream</p>
+        <p class="card-desc">The camera sees eye bags more clearly than you do in the mirror. This is the one that actually makes a visible difference before a shoot.</p>
+        <div class="card-footer">
+          <span class="card-commission">Amazon</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </a>
+
+      <a class="gear-card" href="https://www.getmedivita.com/eyeliftingcreamsilverbrush_en/ys_SXG" target="_blank" rel="noopener">
+        <p class="card-name">Medivita Eye Lifting Cream</p>
+        <p class="card-desc">Silver brush applicator, lifting formula. Worth trying if the Zelens is out of stock or you want a second option in rotation.</p>
+        <div class="card-footer">
+          <span class="card-commission">Direct</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+<section class="gear-section" id="sleep">
+    <div class="section-header">
+      <h2 class="section-title">Get a Good Night's Sleep</h2>
+      <span class="section-count">1 item</span>
+    </div>
+    <div class="gear-grid">
+
+      <a class="gear-card" href="https://www.awin1.com/cread.php?awinmid=100833&awinaffid=2524371" target="_blank" rel="noopener">
+        <p class="card-name">ProMeed HerbalRX&trade; Anti-Aging Pillow</p>
+        <p class="card-desc">How you sleep affects how you look on camera. This pillow is designed to reduce sleep lines, support facial skin overnight, and help you wake up looking like you actually rested.</p>
+        <div class="card-footer">
+          <span class="card-commission">ProMeed</span>
+          <span class="card-arrow">&rarr;</span>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- PRO MODE -->
+  <section class="gear-section" id="promode">
+    <div class="section-header">
+      <h2 class="section-title">PRO MODE:</h2>
+      <span class="section-count">38 items</span>
+    </div>
+    <div class="gear-grid">
+
+      <a class="gear-card" href="https://www.bhphotovideo.com/c/product/1510938-REG/sigma_1a900_fp_mirrorless_digital_camera.html/BI/24075/KBID/29496" target="_blank" rel="noopener">
+        <span class="card-badge badge-camera">Camera</span>
+        <p class="card-name">Sigma fp</p>
+        <p class="card-desc">The world's smallest full-frame mirrorless camera. Shoots 12-bit CinemaDNG RAW. L-mount. The camera that proves size is a design choice, not a limitation.</p>
+        <div class="card-footer"><span class="card-commission">B&amp;H Photo</span><span class="card-arrow">→</span></div>
+      </a>
+
+      <a class="gear-card" href="https://www.bhphotovideo.com/c/product/1817656-REG/sigma_316969_50mm_f_1_2_dg_dn.html/BI/24075/KBID/29496" target="_blank" rel="noopener">
+        <span class="card-badge badge-camera">Lens</span>
+        <p class="card-name">Sigma 50mm f/1.2 DG DN Art</p>
+        <p class="card-desc">A full-stop faster than f/1.4 with the kind of subject separation that makes backgrounds disappear. L-mount. For when you want people to stop and ask what camera you're using.</p>
+        <div class="card-footer"><span class="card-commission">B&amp;H Photo</span><span class="card-arrow">→</span></div>
+      </a>
+
+      <a class="gear-card" href="https://bhpho.to/4n3u5xQ" target="_blank" rel="noopener">
+        <span class="card-badge badge-camera">Adapter</span>
+        <p class="card-name">Urth Manual Lens Adapter (OM to L-Mount)</p>
+        <p class="card-desc">Mount vintage Olympus OM glass on an L-mount body. Opens the door to fast, cheap, character-rich lenses built before autofocus was invented.</p>
+        <div class="card-footer"><span class="card-commission">B&amp;H Photo</span><span class="card-arrow">→</span></div>
+      </a>
+
+      <a class="gear-card" href="https://bhpho.to/4cWRJau" target="_blank" rel="noopener">
+        <span class="card-badge badge-camera">Adapter</span>
+        <p class="card-name">Sigma MC-21 Mount Converter (EF to L-Mount)</p>
+        <p class="card-desc">Brings Canon EF glass — one of the deepest used lens ecosystems on earth — to the L-mount. With autofocus.</p>
+        <div class="card-footer"><span class="card-commission">B&amp;H Photo</span><span class="card-arrow">→</span></div>
+      </a>
+
+      <a class="gear-card" href="https://www.bhphotovideo.com/c/product/1881808-REG/sigma_c46900_bf_mirrorless_camera_black.html/BI/24075/KBID/29496" target="_blank" rel="noopener">
+        <span class="card-badge badge-camera">Camera</span>
+        <p class="card-name">Sigma BF Mirrorless Camera (Black)</p>
+        <p class="card-desc">24.6MP full-frame. Radically simplified. One dial, one button, one idea: get out of the way and let you shoot. L-mount.</p>
+        <div class="card-footer"><span class="card-commission">B&amp;H Photo</span><span class="card-arrow">→</span></div>
+      </a>
+
+      <a class="gear-card" href="https://www.bhphotovideo.com/c/product/1881809-REG/sigma_c47900_bf_mirrorless_camera_silver.html/BI/24075/KBID/29496" target="_blank" rel="noopener">
+        <span class="card-badge badge-camera">Camera</span>
+        <p class="card-name">Sigma BF Mirrorless Camera (Silver)</p>
+        <p class="card-desc">Same camera, different finish. If you want the one that looks like it belongs on a shelf at MoMA.</p>
+        <div class="card-footer"><span class="card-commission">B&amp;H Photo</span><span class="card-arrow">→</span></div>
+      </a>
+
+      <a class="gear-card" href="https://www.bhphotovideo.com/c/product/1963839-REG/panasonic_s_s40k_lumix_s_40mm_f_2.html/BI/24075/KBID/29496" target="_blank" rel="noopener">
+        <span class="card-badge badge-camera">Lens</span>
+        <p class="card-name">Panasonic LUMIX S 40mm f/2 (Black)</p>
+        <p class="card-desc">A compact, lightweight L-mount prime at a genuinely human price point. f/2 is fast enough to separate your subject, and 40mm is close enough to normal that nothing looks wrong. The lens you actually carry.</p>
+        <div class="card-footer"><span class="card-commission">B&amp;H Photo</span><span class="card-arrow">→</span></div>
+      </a>
+
+      <a class="gear-card" href="https://www.bhphotovideo.com/c/product/1955786-REG/sigma_85mm_f_1_2_dg_art.html/BI/24075/KBID/29496" target="_blank" rel="noopener">
+        <span class="card-badge badge-camera">Lens</span>
+        <p class="card-name">Sigma 85mm f/1.2 DG Art (L-Mount)</p>
+        <p class="card-desc">f/1.2 at 85mm. The portrait lens that makes everything else look like it's trying. Background separation so smooth it almost feels unfair.</p>
+        <div class="card-footer"><span class="card-commission">B&amp;H Photo</span><span class="card-arrow">→</span></div>
+      </a>
+
+      <a class="gear-card" href="https://www.bhphotovideo.com/c/product/1924197-REG/ttartisan_af4020_l_b_af_40mm_f_2_lens.html/BI/24075/KBID/29496" target="_blank" rel="noopener">
+        <span class="card-badge badge-camera">Lens</span>
+        <p class="card-name">TTArtisan AF 40mm f/2 (L-Mount)</p>
+        <p class="card-desc">Autofocus, L-mount, 40mm f/2 — at a fraction of what Sigma or Panasonic charge for the same parameters. The smart buy for people who want the look without the invoice.</p>
+        <div class="card-footer"><span class="card-commission">B&amp;H Photo</span><span class="card-arrow">→</span></div>
+      </a>
+
+      <a class="gear-card" href="https://www.bhphotovideo.com/c/product/1939649-REG/ttartisan_af4020_l_s_af_40mm_f_2_lens.html/BI/24075/KBID/29496" target="_blank" rel="noopener">
+        <span class="card-badge badge-camera">Lens</span>
+        <p class="card-name">TTArtisan AF 40mm f/2 (L-Mount, Silver)</p>
+        <p class="card-desc">Same autofocus 40mm f/2 as the black version, silver finish. L-mount.</p>
+        <div class="card-footer"><span class="card-commission">B&amp;H Photo</span><span class="card-arrow">→</span></div>
+      </a>
+
+      <a class="gear-card" href="https://www.bhphotovideo.com/c/product/1637539-REG/ttartisan_a20b_50mm_f1_2_aps_c_lens.html/BI/24075/KBID/29496" target="_blank" rel="noopener">
+        <span class="card-badge badge-camera">Lens</span>
+        <p class="card-name">TTArtisan 50mm f/1.2 for Leica L (Black)</p>
+        <p class="card-desc">Manual focus, f/1.2, APS-C coverage on L-mount. The lens for people who want character over convenience. Renders beautifully wide open.</p>
+        <div class="card-footer"><span class="card-commission">B&amp;H Photo</span><span class="card-arrow">→</span></div>
+      </a>
+
+      <a class="gear-card" href="https://www.bhphotovideo.com/c/product/1747486-REG/ttartisan_c5012_s_l_50mm_f_1_2_aps_c_lens.html/BI/24075/KBID/29496" target="_blank" rel="noopener">
+        <span class="card-badge badge-camera">Lens</span>
+        <p class="card-name">TTArtisan 50mm f/1.2 for Leica L (Silver)</p>
+        <p class="card-desc">Same lens, silver finish. For the setup that should look as good as it shoots.</p>
+        <div class="card-footer"><span class="card-commission">B&amp;H Photo</span><span class="card-arrow">→</span></div>
+      </a>
+
+      <a class="gear-card" href="https://www.bhphotovideo.com/c/product/1847641-REG/sigma_28_105mm_f_2_8_dg_dn.html/BI/24075/KBID/29496" target="_blank" rel="noopener">
+        <span class="card-badge badge-camera">Lens</span>
+        <p class="card-name">Sigma 28-105mm f/2.8 DG DN Art (L-Mount)</p>
+        <p class="card-desc">f/2.8 across the entire zoom range, from 28mm wide to 105mm portrait. One lens that covers nearly everything. The zoom that doesn't make you feel like you're compromising.</p>
+        <div class="card-footer"><span class="card-commission">B&amp;H Photo</span><span class="card-arrow">→</span></div>
+      </a>
+
+      <a class="gear-card" href="https://www.bhphotovideo.com/c/product/1827261-REG/sigma_57a969_24_70mm_f2_8_dg_dn.html/BI/24075/KBID/29496" target="_blank" rel="noopener">
+        <span class="card-badge badge-camera">Lens</span>
+        <p class="card-name">Sigma 24-70mm f/2.8 DG DN II Art (Leica L)</p>
+        <p class="card-desc">The workhorse zoom, second generation. f/2.8 from 24 to 70mm — wide enough for the room, tight enough for the face. What most professionals reach for first.</p>
+        <div class="card-footer"><span class="card-commission">B&amp;H Photo</span><span class="card-arrow">→</span></div>
+      </a>
+
+      <a class="gear-card" href="https://www.bhphotovideo.com/c/product/1829963-REG/sigma_612l_28_45mm_f1_8_dg_dn.html/BI/24075/KBID/29496" target="_blank" rel="noopener">
+        <span class="card-badge badge-camera">Lens</span>
+        <p class="card-name">Sigma 28-45mm f/1.8 DG DN Art (Leica L)</p>
+        <p class="card-desc">A zoom lens at f/1.8. That's not supposed to exist at this size and price. Covers the most useful range for interviews and talking-head video. The one that makes other zooms feel slow.</p>
+        <div class="card-footer"><span class="card-commission">B&amp;H Photo</span><span class="card-arrow">→</span></div>
+      </a>
+
+      <a class="gear-card" href="https://bhpho.to/4t3C4w8" target="_blank" rel="noopener">
+        <span class="card-badge badge-camera">Monitor/Recorder</span>
+        <p class="card-name">Atomos Ninja TX 5.2" HDMI Monitor/Recorder</p>
+        <p class="card-desc">Records ProRes RAW directly from your camera's HDMI output. Accurate exposure tools. The external brain for serious video work.</p>
+        <div class="card-footer"><span class="card-commission">B&amp;H Photo</span><span class="card-arrow">→</span></div>
+      </a>
+
+      <a class="gear-card" href="https://bhpho.to/426fRTa" target="_blank" rel="noopener">
+        <span class="card-badge badge-camera">Monitor/Recorder</span>
+        <p class="card-name">Atomos Ninja V 5" 4K HDMI Monitor</p>
+        <p class="card-desc">The compact version. 5" touchscreen, ProRes RAW recording, HDR monitoring. The workhorse of the Atomos line.</p>
+        <div class="card-footer"><span class="card-commission">B&amp;H Photo</span><span class="card-arrow">→</span></div>
+      </a>
+
+      <a class="gear-card" href="https://bhpho.to/4w0eovd" target="_blank" rel="noopener">
+        <span class="card-badge badge-desk">Power</span>
+        <p class="card-name">Bescor Complete USB-C Kit</p>
+        <p class="card-desc">Power your camera rig over USB-C. The kit that removes batteries from the equation during long shoots or live setups.</p>
+        <div class="card-footer"><span class="card-commission">B&amp;H Photo</span><span class="card-arrow">→</span></div>
+      </a>
+
+      <a class="gear-card" href="https://bhpho.to/4t6oKXQ" target="_blank" rel="noopener">
+        <span class="card-badge badge-desk">Cable</span>
+        <p class="card-name">MSolutions 100W USB-C Cable (6.6', Gray)</p>
+        <p class="card-desc">100W high-speed USB-C to USB-C with braided jacket. 6.6 feet — long enough to route cleanly through a rig.</p>
+        <div class="card-footer"><span class="card-commission">B&amp;H Photo</span><span class="card-arrow">→</span></div>
+      </a>
+
+      <a class="gear-card" href="https://bhpho.to/4eSxTQn" target="_blank" rel="noopener">
+        <span class="card-badge badge-desk">Cable</span>
+        <p class="card-name">MSolutions 100W USB-C Cable (10', Gray)</p>
+        <p class="card-desc">Same cable, 10 feet. For when the power source is nowhere near the camera.</p>
+        <div class="card-footer"><span class="card-commission">B&amp;H Photo</span><span class="card-arrow">→</span></div>
+      </a>
+
+      <a class="gear-card" href="https://bhpho.to/424Lo8c" target="_blank" rel="noopener">
+        <span class="card-badge badge-lighting">Lighting</span>
+        <p class="card-name">Ulanzi UA20 Portable Air Tube Light (3')</p>
+        <p class="card-desc">A flexible, portable LED tube that wraps around whatever you need it to. Soft, diffused, and genuinely good-looking on camera. 3-foot version.</p>
+        <div class="card-footer"><span class="card-commission">B&amp;H Photo</span><span class="card-arrow">→</span></div>
+      </a>
+
+      <a class="gear-card" href="https://bhpho.to/3QRkYUP" target="_blank" rel="noopener">
+        <span class="card-badge badge-lighting">Lighting</span>
+        <p class="card-name">Ulanzi UA20C RGB Magnetic Air Tube Light (2')</p>
+        <p class="card-desc">Same idea, with full RGB color control and magnetic mounting. 2-foot version.</p>
+        <div class="card-footer"><span class="card-commission">B&amp;H Photo</span><span class="card-arrow">→</span></div>
+      </a>
+
+      <a class="gear-card" href="https://www.bhphotovideo.com/c/product/1845756-REG/ulanzi_l092_ua12_ua20_portable_air_tube.html" target="_blank" rel="noopener">
+        <span class="card-badge badge-lighting">Lighting</span>
+        <p class="card-name">Ulanzi UA12 Portable Air Tube Light (2')</p>
+        <p class="card-desc">The compact version. 2-foot flexible LED tube for tight setups and travel kits.</p>
+        <div class="card-footer"><span class="card-commission">B&amp;H Photo</span><span class="card-arrow">→</span></div>
+      </a>
+
+      <a class="gear-card" href="https://www.bhphotovideo.com/c/product/362385-REG/Impact_S3233_White_Translucent_Umbrella_33.html" target="_blank" rel="noopener">
+        <span class="card-badge badge-lighting">Lighting</span>
+        <p class="card-name">Impact White Translucent Umbrella (33")</p>
+        <p class="card-desc">A shoot-through umbrella. Takes a hard light and turns it into something your face actually wants to be near. The classic, cheap, right answer for most people.</p>
+        <div class="card-footer"><span class="card-commission">B&amp;H Photo</span><span class="card-arrow">→</span></div>
+      </a>
+
+      <a class="gear-card" href="https://bhpho.to/4ubUQm6" target="_blank" rel="noopener">
+        <span class="card-badge badge-audio">Audio</span>
+        <p class="card-name">Saramonic Ultra 2-Person Wireless Lavalier System</p>
+        <p class="card-desc">32-bit float recording, AMOLED touchscreen transmitters, 984' range, and a charging case. The wireless lav system that doesn't make you compromise.</p>
+        <div class="card-footer"><span class="card-commission">B&amp;H Photo</span><span class="card-arrow">→</span></div>
+      </a>
+
+      <a class="gear-card" href="https://www.bhphotovideo.com/c/product/1859578-REG/saramonic_ultra03_ultra_2_person_digital_wireless.html/BI/24075/KBID/29496" target="_blank" rel="noopener">
+        <span class="card-badge badge-audio">Audio</span>
+        <p class="card-name">Saramonic Ultra 2-Person Wireless Lavalier System (Black)</p>
+        <p class="card-desc">32-bit float recording, AMOLED touchscreen transmitters, 984' range, and a charging case. The wireless lav system that doesn't make you compromise.</p>
+        <div class="card-footer"><span class="card-commission">B&amp;H Photo</span><span class="card-arrow">→</span></div>
+      </a>
+
+      <a class="gear-card" href="https://www.bhphotovideo.com/c/product/1449997-REG/rode_podmic_dynamic_podcasting_microphone.html/BI/24075/KBID/29496" target="_blank" rel="noopener">
+        <span class="card-badge badge-audio">Audio</span>
+        <p class="card-name">RODE PodMic (XLR, Black)</p>
+        <p class="card-desc">End-address dynamic XLR mic built specifically for speech. Tight cardioid pattern, internal pop filter, internal shockmount. Plug it in and sound like you belong in a studio.</p>
+        <div class="card-footer"><span class="card-commission">B&amp;H Photo</span><span class="card-arrow">→</span></div>
+      </a>
+
+      <a class="gear-card" href="https://www.bhphotovideo.com/c/product/1762233-REG/rode_podmic_usb.html/BI/24075/KBID/29496" target="_blank" rel="noopener">
+        <span class="card-badge badge-audio">Audio</span>
+        <p class="card-name">RODE PodMic USB</p>
+        <p class="card-desc">Same capsule as the PodMic, with USB-C added. Plug straight into your computer with zero-latency monitoring. The version for people who don't own an interface and don't need one.</p>
+        <div class="card-footer"><span class="card-commission">B&amp;H Photo</span><span class="card-arrow">→</span></div>
+      </a>
+
+      <a class="gear-card" href="https://www.bhphotovideo.com/c/product/1808587-REG/shure_mv7_k_bndl_podcast_microphone.html/BI/24075/KBID/29496" target="_blank" rel="noopener">
+        <span class="card-badge badge-audio">Audio</span>
+        <p class="card-name">Shure MV7+ Bundle with Gator Desktop Stand (Black)</p>
+        <p class="card-desc">USB-C and XLR outputs, APHEX DSP onboard, full-color LED touch panel. Comes with a Gator desktop stand. The everything-in-one broadcast mic for people who want to sound good immediately.</p>
+        <div class="card-footer"><span class="card-commission">B&amp;H Photo</span><span class="card-arrow">→</span></div>
+      </a>
+
+      <a class="gear-card" href="https://www.bhphotovideo.com/c/product/1709235-REG/deity_microphones_dta0196d20_vo_7u_usb_microphone_tripod.html/BI/24075/KBID/29496" target="_blank" rel="noopener">
+        <span class="card-badge badge-desk">Teleprompter</span>
+        <p class="card-name">Elgato Prompter (White)</p>
+        <p class="card-desc">9" teleprompter that sits above your monitor. Reads your script while you look directly into the lens. Auto-scrolls with your voice. The upgrade that makes you sound like you know what you're saying.</p>
+        <div class="card-footer"><span class="card-commission">B&amp;H Photo</span><span class="card-arrow">→</span></div>
+      </a>
+
+      <a class="gear-card" href="https://www.bhphotovideo.com/c/product/1709236-REG/deity_microphones_dta0196d21_vo_7u_usb_microphone_tripod.html/BI/24075/KBID/29496" target="_blank" rel="noopener">
+        <span class="card-badge badge-desk">Teleprompter</span>
+        <p class="card-name">Elgato Prompter (Black)</p>
+        <p class="card-desc">Same Elgato Prompter, black finish.</p>
+        <div class="card-footer"><span class="card-commission">B&amp;H Photo</span><span class="card-arrow">→</span></div>
+      </a>
+
+      <a class="gear-card" href="https://www.bhphotovideo.com/c/product/1709238-REG/deity_microphones_dta0196d23_vo_7u_usb_microphone_boom.html/BI/24075/KBID/29496" target="_blank" rel="noopener">
+        <span class="card-badge badge-desk">Teleprompter</span>
+        <p class="card-name">Elgato Prompter Bundle with Mic Arm (Black)</p>
+        <p class="card-desc">Elgato Prompter bundled with their low-profile Wave mic arm. Black. The full desk setup in one box.</p>
+        <div class="card-footer"><span class="card-commission">B&amp;H Photo</span><span class="card-arrow">→</span></div>
+      </a>
+
+      <a class="gear-card" href="https://bhpho.to/4dfRl8p" target="_blank" rel="noopener">
+        <span class="card-badge badge-desk">Mic Arm</span>
+        <p class="card-name">Shure by Gator Low-Profile Boom Arm (White)</p>
+        <p class="card-desc">Articulating desktop boom arm in white. Stays out of frame, keeps the mic where it belongs, and doesn't look like the inside of a server room.</p>
+        <div class="card-footer"><span class="card-commission">B&amp;H Photo</span><span class="card-arrow">→</span></div>
+      </a>
+
+      <a class="gear-card" href="https://www.bhphotovideo.com/c/product/1852445-REG/apple_mww43am_a_airpods_max_midnight.html/BI/24075/KBID/29496" target="_blank" rel="noopener">
+        <span class="card-badge badge-desk">Computer</span>
+        <p class="card-name">Apple 16" MacBook Pro M4 Max (Space Black)</p>
+        <p class="card-desc">M4 Max chip. 36GB unified RAM. 1TB SSD. The machine that doesn't flinch at 4K RAW timelines, heavy plugin stacks, or whatever you throw at it next.</p>
+        <div class="card-footer"><span class="card-commission">B&amp;H Photo</span><span class="card-arrow">→</span></div>
+      </a>
+
+      <a class="gear-card" href="https://www.bhphotovideo.com/c/product/1957032-REG/apple_mbp_m5p_03_14_macbook_pro_m5.html/BI/24075/KBID/29496" target="_blank" rel="noopener">
+        <span class="card-badge badge-desk">Computer</span>
+        <p class="card-name">Apple 14" MacBook Pro M4 Pro (Space Black)</p>
+        <p class="card-desc">M4 Pro chip. 48GB unified RAM. 1TB SSD. 14" for people who want the power without the size. More RAM than the 16" base model.</p>
+        <div class="card-footer"><span class="card-commission">B&amp;H Photo</span><span class="card-arrow">→</span></div>
+      </a>
+
+      <a class="gear-card" href="https://www.bhphotovideo.com/c/product/1956950-REG/apple_mgea4ll_a_16_macbook_pro_m5.html/BI/24075/KBID/29496" target="_blank" rel="noopener">
+        <span class="card-badge badge-desk">Computer</span>
+        <p class="card-name">Apple 16" MacBook Pro M4 Max (Space Black, No Touch ID)</p>
+        <p class="card-desc">Same M4 Max chip, same 36GB RAM, same 1TB SSD — without Touch ID. The spec sheet is identical where it counts.</p>
+        <div class="card-footer"><span class="card-commission">B&amp;H Photo</span><span class="card-arrow">→</span></div>
+      </a>
+
+      <a class="gear-card" href="http://www.bhphotovideo.com/?BI=24075&KBID=29496" target="_blank" rel="noopener">
+        <span class="card-badge badge-camera">Other</span>
+        <p class="card-name">Other Photo / Video</p>
+        <p class="card-desc">Browse B&amp;H Photo's full catalog — cameras, lenses, lighting, audio, and everything else. If it's not listed here, it's probably in there.</p>
+        <div class="card-footer"><span class="card-commission">B&amp;H Photo</span><span class="card-arrow">→</span></div>
+      </a>
+
+      <a class="gear-card" href="https://www.bhphotovideo.com/c/product/1964083-REG/kupo_ks142412_steel_baby_boom_stand.html/BI/24075/KBID/29496" target="_blank" rel="noopener">
+        <span class="card-badge badge-camera">Mount</span>
+        <p class="card-name">Kupo Steel Baby Boom Stand</p>
+        <p class="card-desc">Heavy-duty steel boom arm that mounts to any baby pin stand. Positions a light, microphone, or camera exactly where you need it without another stand eating up floor space.</p>
+        <div class="card-footer"><span class="card-commission">B&amp;H Photo</span><span class="card-arrow">→</span></div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-strip">
+    <p class="cta-strip-eyebrow">Free · No Email Required</p>
+    <h2 class="cta-strip-title">Find Out How You Look On Camera</h2>
+    <p class="cta-strip-sub">Upload a screenshot from any video call. Get an honest score across 6 criteria in under 60 seconds.</p>
+    <a href="https://test.anaudiencefromanywhere.com" class="btn-primary">Take the Camera Score →</a>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <p class="footer-note">Some links on this page are affiliate links. If you buy something through them, I earn a small commission at no extra cost to you. I only list things I've actually used or would genuinely recommend.</p>
+</footer>
+
+<footer style="background:#f4f2ed;border-top:1px solid rgba(24,22,15,0.09);padding:24px 0;text-align:center;">
+  <p style="font-family:'Barlow',sans-serif;font-size:14px;color:rgba(24,22,15,0.45);margin:0;">
+    &copy; 2026 An Audience From Anywhere &nbsp;&middot;&nbsp;
+    <a href="mailto:support@anaudiencefromanywhere.com?subject=Requesting%20a%20refund%20for%20my%20purchase" style="color:rgba(24,22,15,0.45);text-decoration:underline;">Returns &amp; Refunds</a> &nbsp;&middot;&nbsp; <a href="/cookie-policy.html" style="color:rgba(24,22,15,0.45);text-decoration:underline;">Cookie Policy</a> &nbsp;&middot;&nbsp; <button onclick="silktideCookieBannerManager &amp;&amp; silktideCookieBannerManager.openPreferences()" style="background:none;border:none;padding:0;font-family:'Barlow',sans-serif;font-size:14px;color:rgba(24,22,15,0.45);cursor:pointer;text-decoration:underline;">Cookie Settings</button>
+  </p>
+</footer>
+
+</body>
+</html>

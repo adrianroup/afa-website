@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Cookie Policy — An Audience From Anywhere</title>
+<meta name="description" content="Cookie Policy for An Audience From Anywhere." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;1,400&family=Barlow+Condensed:wght@700;800;900&display=swap" rel="stylesheet" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230c0b0a'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%23C0392B'/%3E%3C/svg%3E" />
+<style>
+  :root {
+    --bg: #f4f2ed;
+    --text: #18160f;
+    --text-sec: rgba(24,22,15,0.65);
+    --red: #C0392B;
+    --border: rgba(24,22,15,0.1);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'Barlow', sans-serif; line-height: 1.7; }
+
+  nav.top {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 32px; height: 60px;
+    background: var(--bg); border-bottom: 1px solid var(--border);
+  }
+  .brand { font-family: 'Barlow Condensed', sans-serif; font-size: 15px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text); text-decoration: none; }
+  .brand span { color: var(--red); }
+
+  .page-wrap { max-width: 720px; margin: 0 auto; padding: 64px 24px 96px; }
+  h1 { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(32px, 6vw, 52px); font-weight: 900; letter-spacing: 0.02em; text-transform: uppercase; margin-bottom: 8px; }
+  .last-updated { font-size: 14px; color: var(--text-sec); margin-bottom: 48px; }
+  h2 { font-family: 'Barlow Condensed', sans-serif; font-size: 22px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; margin: 40px 0 12px; color: var(--text); }
+  p { font-size: 16px; color: var(--text-sec); margin-bottom: 16px; }
+  ul { margin: 0 0 16px 20px; }
+  li { font-size: 16px; color: var(--text-sec); margin-bottom: 8px; }
+  a { color: var(--red); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  table { width: 100%; border-collapse: collapse; margin-bottom: 24px; }
+  th { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; text-align: left; padding: 10px 14px; background: rgba(24,22,15,0.06); border: 1px solid var(--border); }
+  td { font-size: 15px; color: var(--text-sec); padding: 10px 14px; border: 1px solid var(--border); vertical-align: top; }
+  .cookie-settings-btn { display: inline-block; margin-top: 8px; padding: 10px 20px; font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; border: 1px solid rgba(24,22,15,0.3); border-radius: 3px; cursor: pointer; background: transparent; color: var(--text); transition: background 0.18s, color 0.18s, border-color 0.18s; }
+  .cookie-settings-btn:hover { background: var(--red); color: #fff; border-color: var(--red); }
+  footer.foot { text-align: center; padding: 32px 24px; border-top: 1px solid var(--border); font-size: 13px; color: var(--text-sec); }
+  footer.foot a { color: var(--text-sec); text-decoration: underline; }
+</style>
+  <!-- UTM Passthrough — captures UTM params on arrival, persists in sessionStorage,
+       appends to all Shopify-bound links so attribution survives to checkout.
+       UTMs are not personal data — no cookie consent required. -->
+  <script>
+    (function () {
+      var UTM_KEYS = ['utm_source','utm_medium','utm_campaign','utm_id','utm_term','utm_content'];
+      var STORAGE_KEY = 'afa_utms';
+
+      // 1. On page load: capture UTMs from URL and store in sessionStorage
+      //    Only overwrite stored UTMs if new ones are present in the URL
+      function captureUTMs() {
+        var params = new URLSearchParams(window.location.search);
+        var found = {};
+        UTM_KEYS.forEach(function(k) {
+          var v = params.get(k);
+          if (v) found[k] = v;
+        });
+        if (Object.keys(found).length > 0) {
+          sessionStorage.setItem(STORAGE_KEY, JSON.stringify(found));
+        }
+      }
+
+      // 2. Build a query string from stored UTMs
+      function getUTMString() {
+        try {
+          var stored = sessionStorage.getItem(STORAGE_KEY);
+          if (!stored) return '';
+          var utms = JSON.parse(stored);
+          var pairs = [];
+          UTM_KEYS.forEach(function(k) {
+            if (utms[k]) pairs.push(encodeURIComponent(k) + '=' + encodeURIComponent(utms[k]));
+          });
+          return pairs.length ? pairs.join('&') : '';
+        } catch(e) { return ''; }
+      }
+
+      // 3. Determine if a URL is Shopify-bound
+      function isShopifyBound(href) {
+        if (!href || href.charAt(0) === '#') return false;
+        // Absolute Shopify URLs
+        if (href.indexOf('myshopify.com') !== -1) return true;
+        if (href.indexOf('shopify.com') !== -1) return true;
+        if (href.indexOf('afascore.com') !== -1) return true;
+        // Relative paths to cart/checkout
+        var path = href.split('?')[0].split('#')[0];
+        if (/^\/cart(\/|$)/.test(path)) return true;
+        if (/^\/checkout(\/|$)/.test(path)) return true;
+        return false;
+      }
+
+      // 4. Append UTMs to a URL (handles existing query params correctly)
+      function appendUTMs(href, utmString) {
+        if (!utmString) return href;
+        // Don't double-append if UTMs already present
+        if (href.indexOf('utm_') !== -1) return href;
+        var separator = href.indexOf('?') !== -1 ? '&' : '?';
+        return href + separator + utmString;
+      }
+
+      // 5. Rewrite all Shopify-bound links on the page
+      function rewriteLinks() {
+        var utmString = getUTMString();
+        if (!utmString) return; // Nothing to append — leave links untouched
+        var links = document.querySelectorAll('a[href]');
+        links.forEach(function(a) {
+          if (isShopifyBound(a.getAttribute('href'))) {
+            a.href = appendUTMs(a.href, utmString);
+          }
+        });
+      }
+
+      // 6. MutationObserver — rewrites any links added to the DOM after initial load
+      function observeNewLinks() {
+        var utmString = getUTMString();
+        if (!utmString) return;
+        var observer = new MutationObserver(function(mutations) {
+          mutations.forEach(function(m) {
+            m.addedNodes.forEach(function(node) {
+              if (node.nodeType !== 1) return;
+              var links = node.tagName === 'A' ? [node] : Array.from(node.querySelectorAll('a[href]'));
+              links.forEach(function(a) {
+                if (isShopifyBound(a.getAttribute('href'))) {
+                  a.href = appendUTMs(a.href, utmString);
+                }
+              });
+            });
+          });
+        });
+        observer.observe(document.body, { childList: true, subtree: true });
+      }
+
+      // Run capture immediately (before DOM ready — URLSearchParams works without DOM)
+      captureUTMs();
+
+      // Rewrite links once DOM is ready
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function() {
+          rewriteLinks();
+          observeNewLinks();
+        });
+      } else {
+        rewriteLinks();
+        observeNewLinks();
+      }
+    })();
+  </script>
+  <!-- LinkedIn Insight Tag — required for all LinkedIn Ads conversion tracking -->
+  <script type="text/javascript">
+    _linkedin_partner_id = "9225924";
+    window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+    window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+  </script>
+  <script type="text/javascript">
+    (function(l) {
+      if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
+      window.lintrk.q=[]}
+      var s = document.getElementsByTagName("script")[0];
+      var b = document.createElement("script");
+      b.type = "text/javascript";b.async = true;
+      b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+      s.parentNode.insertBefore(b, s);})(window.lintrk);
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=9225924&fmt=gif" />
+  </noscript>
+</head>
+<body>
+
+<nav class="top">
+  <a href="/" class="brand"><span>An Audience</span> From Anywhere</a>
+</nav>
+
+<div class="page-wrap">
+  <h1>Cookie Policy</h1>
+  <p class="last-updated">Last updated: April 29, 2026 &nbsp;·&nbsp; Applies to visitors worldwide, including the EU, UK, and Australia</p>
+
+  <h2>What Are Cookies</h2>
+  <p>Cookies are small text files placed on your device when you visit a website. They allow the site to recognise your device on future visits and remember certain information — such as your preferences or whether you have consented to cookies.</p>
+
+  <h2>How We Use Cookies</h2>
+  <p>We use cookies on <strong>anaudiencefromanywhere.com</strong> for the following purposes. You can control which categories are active using the cookie banner or the preferences panel below.</p>
+
+  <h2>Cookie Categories</h2>
+
+  <table>
+    <tr>
+      <th>Category</th>
+      <th>Purpose</th>
+      <th>Can be declined?</th>
+    </tr>
+    <tr>
+      <td><strong>Necessary</strong></td>
+      <td>Essential for the site to function. Includes session management and security cookies. No personal data is collected beyond what is strictly required.</td>
+      <td>No — always active</td>
+    </tr>
+    <tr>
+      <td><strong>Analytics</strong></td>
+      <td>Google Analytics 4 (GA4) — helps us understand how visitors use the site, which pages are most popular, and where visitors come from. Data is aggregated and anonymised.</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><strong>Advertising</strong></td>
+      <td>Used to deliver relevant advertising and measure ad campaign performance. Currently used for LinkedIn Ads retargeting. No advertising cookies are set without your consent.</td>
+      <td>Yes</td>
+    </tr>
+  </table>
+
+  <h2>Third-Party Services</h2>
+  <table>
+    <tr>
+      <th>Service</th>
+      <th>Category</th>
+      <th>Purpose</th>
+      <th>Privacy Policy</th>
+    </tr>
+    <tr>
+      <td>Google Analytics 4</td>
+      <td>Analytics</td>
+      <td>Traffic and behaviour analysis</td>
+      <td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a></td>
+    </tr>
+    <tr>
+      <td>LinkedIn Ads</td>
+      <td>Advertising</td>
+      <td>Ad targeting and conversion tracking</td>
+      <td><a href="https://www.linkedin.com/legal/privacy-policy" target="_blank" rel="noopener">LinkedIn Privacy Policy</a></td>
+    </tr>
+    <tr>
+      <td>Klaviyo</td>
+      <td>Advertising</td>
+      <td>Email marketing personalisation</td>
+      <td><a href="https://www.klaviyo.com/legal/privacy-notice" target="_blank" rel="noopener">Klaviyo Privacy Policy</a></td>
+    </tr>
+  </table>
+
+  <h2>Google Consent Mode v2</h2>
+  <p>We have implemented Google Consent Mode v2. Until you accept Analytics or Advertising cookies, Google Analytics runs in cookieless / modelled mode — no identifiable data is collected and no cookies are set by Google on your device. Your choice is respected immediately.</p>
+
+  <h2>Australian Visitors</h2>
+  <p>We operate in Australia and are aware of our obligations under the <em>Privacy Act 1988</em> (Cth) and the Australian Privacy Principles (APPs). We do not sell personal data. Advertising cookies are only set with your explicit consent. You may withdraw consent at any time using the preferences panel below.</p>
+
+  <h2>EU &amp; UK Visitors</h2>
+  <p>We comply with the EU General Data Protection Regulation (GDPR) and the UK GDPR. Our legal basis for analytics and advertising cookies is your explicit consent (Article 6(1)(a) GDPR). You have the right to withdraw consent at any time — use the preferences panel below.</p>
+
+  <h2>How Long Cookies Last</h2>
+  <p>Necessary cookies are session-based and expire when you close your browser. Analytics and advertising cookies may persist for up to 13 months, consistent with Google's data retention settings.</p>
+
+  <h2>Changing or Withdrawing Consent</h2>
+  <p>You can change your cookie preferences at any time by clicking the button below or the "Cookie Settings" link in the site footer.</p>
+  <button class="cookie-settings-btn" onclick="silktideCookieBannerManager && silktideCookieBannerManager.openPreferences()">Cookie Settings</button>
+
+  <h2>Contact</h2>
+  <p>Questions about this policy? Email us at <a href="mailto:hello@anaudiencefromanywhere.com">hello@anaudiencefromanywhere.com</a>.</p>
+</div>
+
+<footer class="foot">
+  <p>&copy; 2026 An Audience From Anywhere &nbsp;&middot;&nbsp; <a href="/">Home</a> &nbsp;&middot;&nbsp; <a href="/cookie-policy.html">Cookie Policy</a> &nbsp;&middot;&nbsp; <button class="cookie-settings-btn" onclick="silktideCookieBannerManager && silktideCookieBannerManager.openPreferences()" style="font-size:13px;padding:0;border:none;background:none;color:inherit;text-decoration:underline;cursor:pointer;font-family:inherit;">Cookie Settings</button></p>
+</footer>
+
+<!-- Silktide Cookie Banner -->
+<link rel="stylesheet" href="/cookie-banner/silktide-consent-manager.css">
+<script src="/cookie-banner/silktide-consent-manager.js"></script>
+<script>
+silktideCookieBannerManager.updateCookieBannerConfig({
+  background: { showBackground: true },
+  cookieIcon: { position: "bottomLeft" },
+  cookieTypes: [
+    {
+      id: "necessary",
+      name: "Necessary",
+      description: "<p>These cookies are necessary for the website to function properly and cannot be switched off.</p>",
+      required: true,
+      onAccept: function() {}
+    },
+    {
+      id: "analytics",
+      name: "Analytics",
+      description: "<p>These cookies help us understand how visitors use the site by tracking which pages are most popular.</p>",
+      defaultValue: true,
+      onAccept: function() {
+        gtag('consent', 'update', { analytics_storage: 'granted' });
+        dataLayer.push({ event: 'consent_accepted_analytics' });
+      },
+      onReject: function() {
+        gtag('consent', 'update', { analytics_storage: 'denied' });
+      }
+    },
+    {
+      id: "advertising",
+      name: "Advertising",
+      description: "<p>These cookies are used for advertising personalisation and campaign measurement via LinkedIn and Klaviyo.</p>",
+      onAccept: function() {
+        gtag('consent', 'update', { ad_storage: 'granted', ad_user_data: 'granted', ad_personalization: 'granted' });
+        dataLayer.push({ event: 'consent_accepted_advertising' });
+      },
+      onReject: function() {
+        gtag('consent', 'update', { ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' });
+      }
+    }
+  ],
+  text: {
+    banner: {
+      description: "<p>We use cookies to improve your experience and analyse traffic. <a href='/cookie-policy.html' target='_blank'>Cookie Policy</a>.</p>",
+      acceptAllButtonText: "Accept all",
+      rejectNonEssentialButtonText: "Reject non-essential",
+      preferencesButtonText: "Preferences"
+    },
+    preferences: {
+      title: "Customise your cookie preferences",
+      description: "<p>You can choose not to allow some types of cookies. Your choices apply across our website.</p>",
+      creditLinkText: "Get this banner for free"
+    }
+  }
+});
+</script>
+
+</body>
+</html>
