@@ -1039,23 +1039,18 @@ silktideCookieBannerManager.updateCookieBannerConfig({
     #score .container > div:last-child > div a { width: 100%; max-width: 100%; text-align: center; display: block; box-sizing: border-box; }
     #score .container > div:last-child > div > div:last-child { text-align: left; font-size: 14px; letter-spacing: 0.14em; }
 
-    /* PRE-ORDER section: stack books vertically, text readable */
-    #preorder .container > div {
-      flex-direction: column;
-      align-items: center;
+    /* PRE-ORDER section: stack vertically on mobile */
+    #preorder { padding: 64px 24px !important; }
+    #preorder > div {
+      grid-template-columns: 1fr !important;
+      gap: 40px !important;
     }
-    #preorder .container > div > div[style*="position:absolute"] {
-      position: static !important;
-      display: block !important;
-      text-align: center;
-      padding: 32px 20px;
-      pointer-events: all !important;
+    #preorder > div > img {
+      max-width: 320px !important;
+      margin: 0 auto !important;
     }
-    #preorder .container > div > .book-3d-wrap {
-      display: none;
-    }
-    #preorder .container > div > div[style*="position:absolute"] h2 {
-      font-size: clamp(32px, 9vw, 48px);
+    #preorder > div > div {
+      text-align: center !important;
     }
 
     /* CHAPTER headings: reduce size so nothing orphans */
@@ -1318,48 +1313,22 @@ silktideCookieBannerManager.updateCookieBannerConfig({
   <div class="divider"></div>
 
   <!-- PRE-ORDER CTA -->
-  <section id="preorder">
-    <div class="container">
-      <!-- Pre-order: position:relative wrapper, text absolutely centered, books flanking -->
-      <div style="position:relative;display:flex;align-items:center;justify-content:space-between;">
-        <!-- Left: 3D front cover -->
-        <div class="book-3d-wrap" style="flex:0 0 auto;padding:60px 20px;margin-right:auto;">
-          <div class="book-3d" id="book3d">
-            <div class="book-face-front">
-              <img src="book-cover-front.jpg" alt="An Audience From Anywhere book cover" />
-            </div>
-            <div class="book-face-back"></div>
-            <div class="book-face-spine">
-              <span class="book-spine-text">An Audience From Anywhere &nbsp;&middot;&nbsp; Adrian Roup</span>
-            </div>
-            <div class="book-face-pages"></div>
-            <div class="book-face-top"></div>
-            <div class="book-face-bottom"></div>
-          </div>
-        </div>
-        <!-- Center: text — absolutely centered in the full container -->
-        <div style="position:absolute;left:0;right:0;top:0;bottom:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;pointer-events:none;">
-          <div style="pointer-events:all;">
-            <div class="eyebrow" style="margin-bottom:16px;">Coming Soon</div>
-            <h2 style="font-family:'Barlow Condensed',sans-serif;font-weight:900;text-transform:uppercase;letter-spacing:0.02em;font-size:clamp(38px,5vw,64px);line-height:0.95;margin-bottom:24px;">Pre-order<br>the Book</h2>
-            <p style="color:var(--text-sec);font-size:19px;line-height:1.65;margin-bottom:16px;">eBook, audiobook,<br>hardcover and<br>AFA Academy &lsquo;26</p>
-            <p style="margin-bottom:36px;font-family:'Barlow Condensed',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;"><span style="font-size:32px;color:var(--text);display:block;line-height:1;">Save $100+</span><span style="font-size:17px;color:var(--text-sec);display:block;margin-top:4px;">During Pre-Order</span></p>
-            <a href="preorder.html" class="btn btn-primary" style="font-size:17px;padding:18px 36px;">Pre-order Now &rarr;</a>
-          </div>
-        </div>
-        <!-- Right: 3D back cover -->
-        <div class="book-3d-wrap" style="flex:0 0 auto;padding:60px 20px;margin-left:auto;">
-          <div class="book-3d" style="transform:rotateX(8deg) rotateY(30deg) scale(0.92);">
-            <div class="book-face-front" style="border-radius:2px 0 0 0;">
-              <img src="book-cover-back.jpg" alt="An Audience From Anywhere back cover" />
-            </div>
-            <div class="book-face-back"></div>
-            <div class="book-face-spine" style="left:auto;right:0;transform:rotateY(-90deg) translateZ(-10px) scaleX(-1);"></div>
-            <div class="book-face-pages" style="right:auto;left:0;transform:rotateY(90deg) translateZ(-10px);"></div>
-            <div class="book-face-top"></div>
-            <div class="book-face-bottom"></div>
-          </div>
-        </div>
+  <section id="preorder" style="background:#F5F1EA;padding:96px 48px;">
+    <div style="max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;">
+      <!-- LEFT: 3D mockup -->
+      <img
+        src="AFA_3D_transparent.jpg"
+        alt="An Audience From Anywhere — 3D book cover mockup by Adrian Roup"
+        style="display:block;width:100%;height:auto;max-width:520px;margin-left:auto;margin-right:0;"
+      />
+      <!-- RIGHT: text block, left-justified -->
+      <div style="text-align:left;">
+        <div class="eyebrow" style="margin-bottom:20px;">Coming Soon</div>
+        <h2 style="font-family:'Barlow Condensed',sans-serif;font-weight:900;text-transform:uppercase;letter-spacing:0.02em;font-size:clamp(38px,5vw,64px);line-height:0.95;margin-bottom:24px;">Pre-Order<br>The Book</h2>
+        <p style="font-size:18px;line-height:1.55;margin-bottom:28px;color:var(--text);">eBook, audiobook, hardcover<br>and AFA Academy &lsquo;26</p>
+        <p style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:44px;line-height:1;text-transform:uppercase;margin:0 0 4px;color:var(--text);">Save $100+</p>
+        <p style="font-size:14px;letter-spacing:0.18em;text-transform:uppercase;font-weight:700;margin:0 0 32px;color:var(--text);">During Pre-Order</p>
+        <a href="preorder.html" class="btn btn-primary" style="font-size:15px;padding:18px 32px;">Pre-Order Now &rarr;</a>
       </div>
     </div>
   </section>
